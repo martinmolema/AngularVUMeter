@@ -1,0 +1,3319 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>gaugev13 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">gaugev13 documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  VuMeterComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/vu-meter/vu-meter.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-vu-meter</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./vu-meter.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./vu-meter.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#backgroundPath" >backgroundPath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#circleBoundingBox" >circleBoundingBox</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#circumference" >circumference</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#cx" >cx</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#cy" >cy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#drawingBox" >drawingBox</a>
+                            </li>
+                            <li>
+                                <a href="#elGeneratedContent" >elGeneratedContent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#internalNeedleValue" >internalNeedleValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#labelCenterX" >labelCenterX</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#labelCenterY" >labelCenterY</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#labelLeftX" >labelLeftX</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#labelLeftY" >labelLeftY</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#labelRightX" >labelRightX</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#labelRightY" >labelRightY</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#labelTextLeft" >labelTextLeft</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#labelTextRight" >labelTextRight</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#needleMaxValue" >needleMaxValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#needleMinValue" >needleMinValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#needlePolygonPoints" >needlePolygonPoints</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#needleRotation" >needleRotation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#needleRotationShadow" >needleRotationShadow</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#needleTextValue" >needleTextValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#needleTransformOrigin" >needleTransformOrigin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#needleValueRange" >needleValueRange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#radius" >radius</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#svgViewBox" >svgViewBox</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#textBox" >textBox</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#timerRef" >timerRef</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#adjustedNeedleValue" >adjustedNeedleValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#clearArcs" >clearArcs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createArcs" >createArcs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createOneArc" >createOneArc</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapValueToPercentage" >mapValueToPercentage</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setupConfig" >setupConfig</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#update" >update</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateNeedle" >updateNeedle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateNeedleText" >updateNeedleText</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#arcShadowDepth" >arcShadowDepth</a>
+                            </li>
+                            <li>
+                                <a href="#arcSpacing" >arcSpacing</a>
+                            </li>
+                            <li>
+                                <a href="#caption" >caption</a>
+                            </li>
+                            <li>
+                                <a href="#colors" >colors</a>
+                            </li>
+                            <li>
+                                <a href="#extraClass" >extraClass</a>
+                            </li>
+                            <li>
+                                <a href="#footer" >footer</a>
+                            </li>
+                            <li>
+                                <a href="#height" >height</a>
+                            </li>
+                            <li>
+                                <a href="#marginBottom" >marginBottom</a>
+                            </li>
+                            <li>
+                                <a href="#marginSide" >marginSide</a>
+                            </li>
+                            <li>
+                                <a href="#marginTop" >marginTop</a>
+                            </li>
+                            <li>
+                                <a href="#needleBaseWidth" >needleBaseWidth</a>
+                            </li>
+                            <li>
+                                <a href="#needleLengthPercentage" >needleLengthPercentage</a>
+                            </li>
+                            <li>
+                                <a href="#needlePinRadius" >needlePinRadius</a>
+                            </li>
+                            <li>
+                                <a href="#needleShadowOffsetInDegrees" >needleShadowOffsetInDegrees</a>
+                            </li>
+                            <li>
+                                <a href="#needleValue" >needleValue</a>
+                            </li>
+                            <li>
+                                <a href="#needleValueIsPercentage" >needleValueIsPercentage</a>
+                            </li>
+                            <li>
+                                <a href="#ranges" >ranges</a>
+                            </li>
+                            <li>
+                                <a href="#showNeedleShadow" >showNeedleShadow</a>
+                            </li>
+                            <li>
+                                <a href="#showNeedleValueAsText" >showNeedleValueAsText</a>
+                            </li>
+                            <li>
+                                <a href="#showRangeLabels" >showRangeLabels</a>
+                            </li>
+                            <li>
+                                <a href="#strokeWidth" >strokeWidth</a>
+                            </li>
+                            <li>
+                                <a href="#timeOutduration" >timeOutduration</a>
+                            </li>
+                            <li>
+                                <a href="#useArcShadows" >useArcShadows</a>
+                            </li>
+                            <li>
+                                <a href="#width" >width</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:113</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="arcShadowDepth"></a>
+                        <b>arcShadowDepth</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>-3</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:59</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>the shadow depth of the arcs</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="arcSpacing"></a>
+                        <b>arcSpacing</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:45</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>the number of whitespace degrees between each arc</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="caption"></a>
+                        <b>caption</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:47</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>the caption above the VU-meter</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="colors"></a>
+                        <b>colors</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:22</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>the colors in order of the sorted range-parts. the number of colors is always 2 smaller than the number of ranges</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="extraClass"></a>
+                        <b>extraClass</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:51</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>an extra class added to each SVG-object and/or HTML element to be able to influence styling</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="footer"></a>
+                        <b>footer</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:49</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>the caption below the VU-meter</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="height"></a>
+                        <b>height</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:16</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The height of the drawing area of the VU-meter</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="marginBottom"></a>
+                        <b>marginBottom</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:26</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>the number of pixels reserved in the drawing area so text labels can be printed</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="marginSide"></a>
+                        <b>marginSide</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:30</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>the number of pixels reserved on the left and right side of the drawing area</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="marginTop"></a>
+                        <b>marginTop</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:28</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>the number of pixels reserved on the top of the drawing area</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="needleBaseWidth"></a>
+                        <b>needleBaseWidth</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:32</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>the width of the needle at the base (where it rotates)</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="needleLengthPercentage"></a>
+                        <b>needleLengthPercentage</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>90</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:34</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>the needle length in percentage of the length of the distance between the needle&#39;s pin and the arcs</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="needlePinRadius"></a>
+                        <b>needlePinRadius</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>2</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:43</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The radius in pixels of the pin. set to zero to make it disappear or use a class (:host ::ng-deep )</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="needleShadowOffsetInDegrees"></a>
+                        <b>needleShadowOffsetInDegrees</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>2</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:55</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>at what maximum angle should the needle shadow be displayed?</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="needleValue"></a>
+                        <b>needleValue</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:18</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The current needle value to display</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="needleValueIsPercentage"></a>
+                        <b>needleValueIsPercentage</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:41</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Is the value of the current needle value a percentage? (if not: the value is interpreted as being in the range
+of given numbers (see <a href="../components/VuMeterComponent.html#needleValue">needleValue</a> )</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ranges"></a>
+                        <b>ranges</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number[]</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:20</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>an array of numbers for the ranges. min and max value must be present</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showNeedleShadow"></a>
+                        <b>showNeedleShadow</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:53</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>should an adaptive shadow be displayed?</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showNeedleValueAsText"></a>
+                        <b>showNeedleValueAsText</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:36</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Should the current value be displayed?</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showRangeLabels"></a>
+                        <b>showRangeLabels</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:38</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Show minimal and maximal value at the left and right base (below the start/finish of the arcs)</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="strokeWidth"></a>
+                        <b>strokeWidth</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:24</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>the stroke-width of the SVG arcs being drawn</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="timeOutduration"></a>
+                        <b>timeOutduration</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>500</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:61</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>the time out duration in milliseconds to animate changes</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="useArcShadows"></a>
+                        <b>useArcShadows</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:57</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>use an SVG-filter to draw shadows below the arcs</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="width"></a>
+                        <b>width</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:14</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The width of the drawing area of the VU-meter</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="adjustedNeedleValue"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>adjustedNeedleValue</b></span>
+                        <a href="#adjustedNeedleValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>adjustedNeedleValue(needleValueIsPercentage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="304"
+                            class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:304</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>needleValueIsPercentage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearArcs"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>clearArcs</b></span>
+                        <a href="#clearArcs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clearArcs()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="285"
+                            class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:285</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createArcs"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>createArcs</b></span>
+                        <a href="#createArcs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createArcs()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="269"
+                            class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:269</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createOneArc"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>createOneArc</b></span>
+                        <a href="#createOneArc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createOneArc(rangePosition: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="329"
+                            class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:329</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>rangePosition</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>SVGElement</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapValueToPercentage"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>mapValueToPercentage</b></span>
+                        <a href="#mapValueToPercentage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapValueToPercentage(min: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, max: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="361"
+                            class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:361</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>maps a value between min and max to a percentage between 0 and 1</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>min</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>max</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="139"
+                            class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:139</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="143"
+                            class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:143</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="135"
+                            class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:135</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setupConfig"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>setupConfig</b></span>
+                        <a href="#setupConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setupConfig()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="193"
+                            class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:193</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(updateText: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="261"
+                            class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:261</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>updateText</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>true</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateNeedle"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>updateNeedle</b></span>
+                        <a href="#updateNeedle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateNeedle()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="293"
+                            class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:293</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateNeedleText"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>updateNeedleText</b></span>
+                        <a href="#updateNeedleText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateNeedleText()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="319"
+                            class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:319</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="backgroundPath"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>backgroundPath</b></span>
+                        <a href="#backgroundPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="circleBoundingBox"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>circleBoundingBox</b></span>
+                        <a href="#circleBoundingBox"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Rectangle.html" target="_self" >Rectangle</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="circumference"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>circumference</b></span>
+                        <a href="#circumference"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cx"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>cx</b></span>
+                        <a href="#cx"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>the X position of (cx,cy) position of the needle and arcs</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cy"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>cy</b></span>
+                        <a href="#cy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>the Y position of  (cx,cy) position of the needle and arcs</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="drawingBox"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>drawingBox</b></span>
+                        <a href="#drawingBox"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Rectangle.html" target="_self" >Rectangle</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="elGeneratedContent"></a>
+                    <span class="name">
+                        <span ><b>elGeneratedContent</b></span>
+                        <a href="#elGeneratedContent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef | undefined</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;generatedContent&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="internalNeedleValue"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>internalNeedleValue</b></span>
+                        <a href="#internalNeedleValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="labelCenterX"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>labelCenterX</b></span>
+                        <a href="#labelCenterX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:81</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The X-position of the center label</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="labelCenterY"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>labelCenterY</b></span>
+                        <a href="#labelCenterY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:83</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The Y-position of the center label</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="labelLeftX"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>labelLeftX</b></span>
+                        <a href="#labelLeftX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The X-position of the left label</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="labelLeftY"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>labelLeftY</b></span>
+                        <a href="#labelLeftY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The Y-position of the left label</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="labelRightX"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>labelRightX</b></span>
+                        <a href="#labelRightX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:77</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The X-position of the right label</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="labelRightY"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>labelRightY</b></span>
+                        <a href="#labelRightY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:79</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The Y-position of the right label</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="labelTextLeft"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>labelTextLeft</b></span>
+                        <a href="#labelTextLeft"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="labelTextRight"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>labelTextRight</b></span>
+                        <a href="#labelTextRight"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:113</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="needleMaxValue"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>needleMaxValue</b></span>
+                        <a href="#needleMaxValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:94</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="needleMinValue"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>needleMinValue</b></span>
+                        <a href="#needleMinValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="needlePolygonPoints"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>needlePolygonPoints</b></span>
+                        <a href="#needlePolygonPoints"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="needleRotation"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>needleRotation</b></span>
+                        <a href="#needleRotation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="needleRotationShadow"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>needleRotationShadow</b></span>
+                        <a href="#needleRotationShadow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="needleTextValue"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>needleTextValue</b></span>
+                        <a href="#needleTextValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="needleTransformOrigin"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>needleTransformOrigin</b></span>
+                        <a href="#needleTransformOrigin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="needleValueRange"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>needleValueRange</b></span>
+                        <a href="#needleValueRange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="radius"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>radius</b></span>
+                        <a href="#radius"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="svgViewBox"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>svgViewBox</b></span>
+                        <a href="#svgViewBox"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="textBox"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>textBox</b></span>
+                        <a href="#textBox"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Rectangle.html" target="_self" >Rectangle</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="timerRef"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>timerRef</b></span>
+                        <a href="#timerRef"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/app/vu-meter/vu-meter.component.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from &#x27;@angular/core&#x27;;
+import {Rectangle, SVGElementType, SVGFactory} from &quot;../classes/s-v-g-factory&quot;;
+
+@Component({
+  selector: &#x27;app-vu-meter&#x27;,
+  templateUrl: &#x27;./vu-meter.component.html&#x27;,
+  styleUrls: [&#x27;./vu-meter.component.css&#x27;]
+})
+export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
+
+  @ViewChild(&#x27;generatedContent&#x27;) elGeneratedContent: ElementRef | undefined;
+
+  /** The width of the drawing area of the VU-meter  */
+  @Input() width: number;
+  /**  The height of the drawing area of the VU-meter */
+  @Input() height: number;
+  /** The current needle value to display  */
+  @Input() needleValue: number;
+  /** an array of numbers for the ranges. min and max value must be present  */
+  @Input() ranges: number[];
+  /**  the colors in order of the sorted range-parts. the number of colors is always 2 smaller than the number of ranges */
+  @Input() colors: string[];
+  /** the stroke-width of the SVG arcs being drawn  */
+  @Input() strokeWidth: number;
+  /**  the number of pixels reserved in the drawing area so text labels can be printed */
+  @Input() marginBottom: number;
+  /**  the number of pixels reserved on the top of the drawing area */
+  @Input() marginTop: number;
+  /**  the number of pixels reserved on the left and right side of the drawing area */
+  @Input() marginSide: number;
+  /** the width of the needle at the base (where it rotates) */
+  @Input() needleBaseWidth &#x3D; 1;
+  /** the needle length in percentage of the length of the distance between the needle&#x27;s pin and the arcs */
+  @Input() needleLengthPercentage &#x3D; 90;
+  /** Should the current value be displayed? */
+  @Input() showNeedleValueAsText &#x3D; false;
+  /** Show minimal and maximal value at the left and right base (below the start/finish of the arcs) */
+  @Input() showRangeLabels &#x3D; true;
+  /** Is the value of the current needle value a percentage? (if not: the value is interpreted as being in the range
+   * of given numbers (see [needleValue]{@link VuMeterComponent#needleValue} )*/
+  @Input() needleValueIsPercentage &#x3D; false;
+  /** The radius in pixels of the pin. set to zero to make it disappear or use a class (:host ::ng-deep ) */
+  @Input() needlePinRadius &#x3D; 2;
+  /** the number of whitespace degrees between each arc */
+  @Input() arcSpacing &#x3D; 1;
+  /** the caption above the VU-meter */
+  @Input() caption &#x3D; &#x27;&#x27;;
+  /** the caption below the VU-meter */
+  @Input() footer &#x3D; &#x27;&#x27;;
+  /** an extra class added to each SVG-object and/or HTML element to be able to influence styling */
+  @Input() extraClass &#x3D; &#x27;&#x27;;
+  /** should an adaptive shadow be displayed? */
+  @Input() showNeedleShadow &#x3D; false;
+  /** at what maximum angle should the needle shadow be displayed? */
+  @Input() needleShadowOffsetInDegrees &#x3D; 2;
+  /** use an SVG-filter to draw shadows below the arcs */
+  @Input() useArcShadows &#x3D; false;
+  /** the shadow depth of the arcs */
+  @Input() arcShadowDepth &#x3D; -3;
+  /** the time out duration in milliseconds to animate changes */
+  @Input() timeOutduration &#x3D; 500;
+
+
+  private internalNeedleValue &#x3D; 0;
+  private radius &#x3D; 1;
+  private circumference: number;
+
+  /** the X position of (cx,cy) position of the needle and arcs */
+  public cx &#x3D; 0;
+  /** the Y position of  (cx,cy) position of the needle and arcs */
+  public cy &#x3D; 0;
+  /** The X-position of the left label */
+  public labelLeftX &#x3D; 0;
+  /** The Y-position of the left label */
+  public labelLeftY &#x3D; 0;
+  /** The X-position of the right label */
+  public labelRightX &#x3D; 0;
+  /** The Y-position of the right label */
+  public labelRightY &#x3D; 0;
+  /** The X-position of the center label */
+  public labelCenterX &#x3D; 0;
+  /** The Y-position of the center label */
+  public labelCenterY &#x3D; 0;
+
+  /**  */
+  public needleRotation &#x3D;  &#x27;&#x27;;
+  /**  */
+  public needlePolygonPoints &#x3D; &#x27;&#x27;;
+  /**  */
+  public needleTransformOrigin &#x3D; &#x27;&#x27;;
+  /**  */
+  public needleTextValue &#x3D; &#x27;&#x27;;
+  /**  */
+  public needleMaxValue: number;
+  /**  */
+  public needleMinValue: number;
+  /**  */
+  public needleValueRange: number;
+  /**  */
+  public needleRotationShadow &#x3D; &#x27;&#x27;;
+
+  /**  */
+  public svgViewBox &#x3D; &#x27;&#x27;;
+  /**  */
+  public backgroundPath &#x3D; &#x27;&#x27;;
+
+  private drawingBox: Rectangle;
+  private textBox: Rectangle;
+  private circleBoundingBox: Rectangle;
+  private timerRef: any;
+
+  public labelTextLeft &#x3D; &#x27;&#x27;;
+  public labelTextRight &#x3D; &#x27;&#x27;;
+
+  constructor() {
+    this.needleValue &#x3D; 0;
+    this.ranges &#x3D; [];
+    this.colors &#x3D; [];
+    this.circumference &#x3D; 0;
+    this.strokeWidth &#x3D; 10;
+    this.width  &#x3D; 2;
+    this.height &#x3D; 2;
+    this.marginBottom &#x3D; 0;
+    this.marginSide &#x3D; 0;
+    this.marginTop &#x3D; 0;
+    this.drawingBox &#x3D; new Rectangle(0, 0, 0, 0);
+    this.textBox &#x3D; new Rectangle(0, 0, 0, 0);
+    this.circleBoundingBox &#x3D; new Rectangle(0, 0, 0, 0);
+    this.needleMaxValue &#x3D; 0;
+    this.needleMinValue &#x3D; 0;
+    this.needleValueRange &#x3D; 0;
+    this.needlePinRadius &#x3D; 2;
+  }
+
+  ngOnInit(): void {
+    this.setupConfig();
+  }
+
+  ngAfterViewInit(): void {
+    this.update();
+  }// ngAfterViewInit
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes[&#x27;needleValue&#x27;]) {
+      // first check for valid number coming in. if not: do nothing
+      if (
+        isNaN(changes[&#x27;needleValue&#x27;].currentValue) ||
+        changes[&#x27;needleValue&#x27;].currentValue &#x3D;&#x3D;&#x3D; undefined ||
+        changes[&#x27;needleValue&#x27;].currentValue &#x3D;&#x3D;&#x3D; null
+      ) { return ; }
+
+      // check if there is already an animation running; if so, cancel it, so we can start again continuing from the
+      // current version
+      if (this.timerRef) {
+        window.clearInterval(this.timerRef);
+      }
+      if (changes[&#x27;needleValue&#x27;].isFirstChange()) {
+        this.internalNeedleValue &#x3D; changes[&#x27;needleValue&#x27;].currentValue;
+        this.update();
+      }
+      else {
+        const startValue &#x3D; changes[&#x27;needleValue&#x27;].previousValue;
+        const endValue   &#x3D; changes[&#x27;needleValue&#x27;].currentValue;
+
+        let   numberOfTimeOutSteps &#x3D; 10; // maximum number of steps
+        const timeOutStepDuration  &#x3D; this.timeOutduration / numberOfTimeOutSteps;
+        let animationStepper &#x3D; 0;
+        const easeInStepValue &#x3D; 1 / (numberOfTimeOutSteps - 1);
+
+        this.internalNeedleValue &#x3D; startValue;
+        this.update();
+        this.timerRef &#x3D; window.setInterval(()&#x3D;&gt; {
+          // see https://css-tricks.com/emulating-css-timing-functions-javascript/
+          const factor &#x3D; 0.5*(Math.sin((animationStepper - 0.5)*Math.PI) + 1); // ease-in-out function
+          this.internalNeedleValue &#x3D; startValue + (endValue - startValue ) * factor;
+          this.update(false);
+
+          numberOfTimeOutSteps--;
+          animationStepper +&#x3D; easeInStepValue;
+
+          if (numberOfTimeOutSteps &#x3D;&#x3D;&#x3D; 0) {
+            window.clearInterval(this.timerRef);
+            this.internalNeedleValue &#x3D; endValue;
+            this.update();
+          }
+        }, timeOutStepDuration);
+      }
+    }
+    this.update();
+  }// ngOnChanges
+
+
+  private setupConfig(): void {
+    this.needleMaxValue   &#x3D; Math.max(...this.ranges);
+    this.needleMinValue   &#x3D; Math.min(...this.ranges);
+    this.needleValueRange &#x3D; Math.abs(this.needleMaxValue - this.needleMinValue);
+
+    this.drawingBox.update(
+      this.marginSide,
+      this.marginTop,
+      this.width - this.marginSide,
+      this.height - this.marginBottom - this.needleBaseWidth
+    );
+    if (this.drawingBox.ratioWH &lt; 2.1) {
+      this.radius &#x3D; this.drawingBox.w / 2;
+    }
+    else {
+      this.radius &#x3D; this.drawingBox.h;
+    }
+
+    this.circumference &#x3D; 2 * Math.PI * this.radius;
+    this.svgViewBox &#x3D; &#x60;0 0 ${this.width} ${this.height}&#x60;;
+
+    const needleWidth &#x3D; this.needleBaseWidth;
+    const needleLength &#x3D; (this.radius) * (this.needleLengthPercentage / 100);
+
+    this.cx &#x3D; this.drawingBox.x1 + this.drawingBox.w / 2;
+    this.cy &#x3D; this.drawingBox.y2;
+
+    this.circleBoundingBox.x1 &#x3D; this.cx - this.radius;
+    this.circleBoundingBox.y1 &#x3D; this.drawingBox.y1;
+    this.circleBoundingBox.x2 &#x3D; this.cx + this.radius;
+    this.circleBoundingBox.y2 &#x3D; this.cy;
+
+    this.backgroundPath &#x3D; &#x60;
+    M ${this.circleBoundingBox.x1},${this.circleBoundingBox.y2}
+    A 1 1 0 1 1 ${this.circleBoundingBox.x2} ${this.circleBoundingBox.y2}
+    &#x60;;
+    this.textBox.update(
+      this.circleBoundingBox.x1,
+      this.height - this.marginBottom,
+      this.circleBoundingBox.x2,
+      this.height
+    );
+
+    this.labelLeftX &#x3D; this.textBox.x1;
+    this.labelLeftY &#x3D; this.textBox.y2;
+
+    this.labelRightX &#x3D; this.textBox.x2;
+    this.labelRightY &#x3D; this.textBox.y2;
+
+    if (this.showRangeLabels) {
+      if (this.needleValueIsPercentage){
+        this.labelTextLeft &#x3D; &#x27;0%&#x27;;
+        this.labelTextRight &#x3D; &#x27;100%&#x27;;
+      }
+      else{
+        this.labelTextLeft &#x3D; this.ranges[0].toString(10);
+        this.labelTextRight &#x3D; this.needleMaxValue.toString(10);
+      }
+
+    }
+
+    this.labelCenterX &#x3D; this.textBox.x1 + this.textBox.w / 2;
+    this.labelCenterY &#x3D; this.textBox.y2;
+    this.needlePolygonPoints   &#x3D; &#x60;${this.cx - needleWidth},${this.cy} ${this.cx},${this.cy - needleLength} ${this.cx + needleWidth},${this.cy}&#x60;;
+    this.needleTransformOrigin &#x3D; &#x60;${this.cx},${this.cy}&#x60;;
+
+  }
+
+  private update(updateText: boolean &#x3D; true): void {
+    this.createArcs();
+    this.updateNeedle();
+    if (updateText) {
+      this.updateNeedleText();
+    }
+  }
+
+  private createArcs(): void {
+    const svgParent &#x3D; this.elGeneratedContent?.nativeElement;
+    this.clearArcs();
+    if (svgParent &#x3D;&#x3D;&#x3D; undefined) { return ; }
+    if (this.ranges.length &lt; 2 ) { console.error(&#x27;VuMeterComponent::Need minimal 2 ranges.&#x27;); return ; }
+    if (this.colors.length !&#x3D;&#x3D; this.ranges.length - 1 ) {
+      console.error(&#x27;VuMeterComponent::Number of colors and ranges do not match.&#x27;);
+      return ;
+    }
+
+    for (let segmentNr &#x3D; 0; segmentNr &lt; this.ranges.length - 1; segmentNr++) {
+      const newCircle &#x3D; this.createOneArc(segmentNr);
+      svgParent.appendChild(newCircle);
+    }
+  }// createLineSegments
+
+  private clearArcs(): void {
+    const svgParent &#x3D; this.elGeneratedContent?.nativeElement;
+    if (svgParent &#x3D;&#x3D;&#x3D; undefined) { return ; }
+    while (svgParent.children.length &gt; 0) {
+      svgParent.firstChild.remove();
+    }
+  }
+
+  private updateNeedle(): void {
+    const needlePercentage &#x3D; this.adjustedNeedleValue(this.needleValueIsPercentage);
+    const needleAngle &#x3D; needlePercentage * 180 / 100;
+
+    // 50% means shadow is cast directly under the needle; &lt; 50% &#x3D; left ; &gt;50% is right
+    const shadowOffset &#x3D; (-50 + needlePercentage) / 100 * this.needleShadowOffsetInDegrees;
+
+    this.needleRotation &#x3D; &#x60;rotate(${-90 + needleAngle},${this.cx},${this.cy})&#x60;;
+    this.needleRotationShadow &#x3D; &#x60;rotate(${-90 + needleAngle + shadowOffset},${this.cx},${this.cy})&#x60;;
+  }
+
+  private adjustedNeedleValue(needleValueIsPercentage: boolean): number {
+    let needleRecalculatedValue;
+    if (needleValueIsPercentage) {
+      needleRecalculatedValue &#x3D; this.internalNeedleValue;
+      needleRecalculatedValue &#x3D; Math.min(needleRecalculatedValue, 100);
+      needleRecalculatedValue &#x3D; Math.max(needleRecalculatedValue, 0);
+    }
+    else{
+      needleRecalculatedValue &#x3D; this.mapValueToPercentage(this.needleMinValue, this.needleMaxValue, this.internalNeedleValue) * 100;
+      needleRecalculatedValue &#x3D; Math.min(needleRecalculatedValue, 100);
+      needleRecalculatedValue &#x3D; Math.max(needleRecalculatedValue, 0);
+    }
+    return needleRecalculatedValue;
+  }
+
+  private updateNeedleText(): void {
+    if (this.showNeedleValueAsText) {
+      if (this.needleValueIsPercentage) {
+        this.needleTextValue &#x3D; this.adjustedNeedleValue(this.needleValueIsPercentage).toFixed(0) + &#x27;%&#x27;;
+      } else {
+        this.needleTextValue &#x3D; this.internalNeedleValue.toString(10);
+      }
+    }
+  }
+
+  private createOneArc(rangePosition: number): SVGElement {
+    const newCircle &#x3D; SVGFactory.createElement(SVGElementType.Circle) as SVGElement;
+    newCircle.setAttribute(&#x27;r&#x27; , this.radius.toFixed(2));
+    newCircle.setAttribute(&#x27;cx&#x27; , &#x60;${this.cx}&#x60;);
+    newCircle.setAttribute(&#x27;cy&#x27; , &#x60;${this.cy}&#x60;);
+    newCircle.setAttribute(&#x27;stroke-width&#x27; , &#x60;${this.strokeWidth}&#x60;);
+    newCircle.setAttribute(&#x27;stroke&#x27; , this.colors[rangePosition]);
+    newCircle.setAttribute(&#x27;fill&#x27; , &#x27;none&#x27;);
+    newCircle.setAttribute(&#x27;class&#x27; , &#x60;gauge arc ${this.extraClass}&#x60;);
+    if (this.useArcShadows) {
+      newCircle.setAttribute(&#x27;filter&#x27;, &#x27;url(#shadow-arc&#x27;);
+    }
+
+    const startPos &#x3D; this.mapValueToPercentage(this.needleMinValue, this.needleMaxValue, this.ranges[rangePosition]);
+    const endPos   &#x3D; this.mapValueToPercentage(this.needleMinValue, this.needleMaxValue, this.ranges[rangePosition + 1]);
+    const length   &#x3D; (endPos - startPos) * (this.circumference / 2) - this.arcSpacing;
+
+    const rotationAngle &#x3D; -180 + (startPos * 180);
+
+    newCircle.setAttribute(&#x27;transform&#x27; , &#x60;rotate(${rotationAngle}  ${this.cx} ${this.cy})&#x60;);
+    const dashArray &#x3D; &#x60;${length},${this.circumference * 2}&#x60;;
+
+    const dashOffset &#x3D; &#x60;0&#x60;;
+    newCircle.setAttribute(&#x27;stroke-dasharray&#x27; , dashArray);
+    newCircle.setAttribute(&#x27;stroke-dashoffset&#x27; , dashOffset );
+
+    return newCircle;
+  }
+
+  /**
+   * maps a value between min and max to a percentage between 0 and 1
+   */
+  private mapValueToPercentage(min: number, max: number, value: number): number {
+    const range &#x3D; max - min;
+    const shift &#x3D; 0 - min;  // direction to shift ; [-4,8] &#x3D;&gt; [0, 12] &#x3D;&gt; shift &#x3D; +4
+    value +&#x3D; shift;
+
+    return value / range;
+  }
+}// class
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;article class&#x3D;&quot;gauge container {{extraClass}}&quot; style&#x3D;&quot;width:{{width}}px&quot;&gt;
+  &lt;header *ngIf&#x3D;&quot;caption !&#x3D;&#x3D; &#x27;&#x27;&quot; class&#x3D;&quot;gauge header {{extraClass}}&quot;&gt;
+    &lt;h1 class&#x3D;&quot;gauge caption {{extraClass}}&quot;&gt;{{caption}}&lt;/h1&gt;
+  &lt;/header&gt;
+  &lt;section  class&#x3D;&quot;gauge container {{extraClass}}&quot;&gt;
+    &lt;svg [attr.width]&#x3D;&quot;this.width&quot; [attr.height]&#x3D;&quot;this.height&quot;&gt;
+      &lt;defs&gt;
+        &lt;filter id&#x3D;&quot;shadow-arc&quot; x&#x3D;&quot;0&quot; y&#x3D;&quot;0&quot; width&#x3D;&quot;200%&quot; height&#x3D;&quot;200%&quot;&gt;
+          &lt;feDropShadow [attr.dx]&#x3D;&quot;arcShadowDepth&quot; dy&#x3D;&quot;0&quot; stdDeviation&#x3D;&quot;1&quot; flood-color&#x3D;&quot;lightgray&quot; flood-opacity&#x3D;&quot;1&quot; /&gt;
+        &lt;/filter&gt;
+      &lt;/defs&gt;
+      &lt;g&gt;
+        &lt;path #arcbackground
+              [attr.d]&#x3D;&quot;backgroundPath&quot;
+              class&#x3D;&quot;gauge arcs background {{extraClass}}&quot;
+        &gt;&lt;/path&gt;
+      &lt;/g&gt;
+      &lt;g id&#x3D;&quot;generatedContent&quot; #generatedContent&gt;
+      &lt;/g&gt;
+      &lt;g #needle&gt;
+        &lt;polygon #needlePointerShadow
+                 *ngIf&#x3D;&quot;showNeedleShadow&quot;
+                 [attr.points]&#x3D;&quot;needlePolygonPoints&quot;
+                 class&#x3D;&quot;gauge needle pointer shadow {{extraClass}}&quot;
+                 [attr.transform]&#x3D;&quot;needleRotationShadow&quot;
+                 [attr.transformOrigin]&#x3D;&quot;needleTransformOrigin&quot;&gt;&lt;/polygon&gt;
+        &lt;polygon #needlePointer
+                 [attr.points]&#x3D;&quot;needlePolygonPoints&quot;
+                 class&#x3D;&quot;gauge needle pointer {{extraClass}}&quot;
+                 [attr.transform]&#x3D;&quot;needleRotation&quot;
+                 [attr.transformOrigin]&#x3D;&quot;needleTransformOrigin&quot;&gt;&lt;/polygon&gt;
+        &lt;circle #needleCircle
+                [attr.cx]&#x3D;&quot;this.cx&quot; [attr.cy]&#x3D;&quot;this.cy&quot;
+                [attr.r]&#x3D;&quot;needleBaseWidth&quot;
+                class&#x3D;&quot;gauge needle circle {{extraClass}}&quot;
+        &gt;&lt;/circle&gt;
+        &lt;circle #needlePin
+                [attr.cx]&#x3D;&quot;this.cx&quot; [attr.cy]&#x3D;&quot;this.cy&quot;
+                [attr.r]&#x3D;&quot;needlePinRadius&quot;
+                class&#x3D;&quot;gauge needle pin {{extraClass}}&quot;&gt;&lt;/circle&gt;
+      &lt;/g&gt;
+      &lt;text #labelLeft class&#x3D;&quot;gauge label left {{extraClass}}&quot;
+            [attr.x]&#x3D;&quot;labelLeftX&quot;
+            [attr.y]&#x3D;&quot;labelLeftY&quot;&gt;{{labelTextLeft}}&lt;/text&gt;
+      &lt;text #labelRight class&#x3D;&quot;gauge label right {{extraClass}}&quot;
+            [attr.x]&#x3D;&quot;labelRightX&quot;
+            [attr.y]&#x3D;&quot;labelRightY&quot;&gt;{{labelTextRight}}&lt;/text&gt;
+      &lt;text #labelCenter class&#x3D;&quot;gauge label center {{extraClass}}&quot;
+            [attr.x]&#x3D;&quot;labelCenterX&quot;
+            [attr.y]&#x3D;&quot;labelCenterY&quot;&gt;{{this.needleTextValue}}&lt;/text&gt;
+    &lt;/svg&gt;
+  &lt;/section&gt;
+  &lt;footer  *ngIf&#x3D;&quot;footer !&#x3D;&#x3D; &#x27;&#x27;&quot; class&#x3D;&quot;gauge footer {{extraClass}}&quot;&gt;
+    &lt;h1 class&#x3D;&quot;gauge caption {{extraClass}}&quot;&gt;{{footer}}&lt;/h1&gt;
+  &lt;/footer&gt;
+&lt;/article&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./vu-meter.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">article.gauge {
+
+}
+
+article.gauge header {
+  background-color:darkgray;
+  color: white;
+}
+
+article.gauge footer h1,
+article.gauge header h1 {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 10pt;
+  text-align: center;
+  margin:0;
+}
+
+
+::ng-deep circle.arc:hover {
+  opacity: 50%;
+}
+
+text.label {
+  text-anchor: middle;
+}
+
+.gauge.arcs.background {
+  fill: rgb(220,220,220,0.5);
+  stroke: black;
+  stroke-width:10px;
+}
+
+.gauge.needle.circle,
+.gauge.needle.pointer {
+  fill: dodgerblue;
+  stroke: darkblue;
+}
+.gauge.needle.pointer.shadow {
+  opacity: 0.5;
+  fill: lightgray;
+  stroke:none;
+}
+
+
+.gauge.needle.pin {
+  stroke: none;
+  fill: white;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><article class="gauge container {{extraClass}}" style="width:{{width}}px">  <header *ngIf="caption !== \'\'" class="gauge header {{extraClass}}">    <h1 class="gauge caption {{extraClass}}">{{caption}}</h1>  </header>  <section  class="gauge container {{extraClass}}">    <svg [attr.width]="this.width" [attr.height]="this.height">      <defs>        <filter id="shadow-arc" x="0" y="0" width="200%" height="200%">          <feDropShadow [attr.dx]="arcShadowDepth" dy="0" stdDeviation="1" flood-color="lightgray" flood-opacity="1" />        </filter>      </defs>      <g>        <path #arcbackground              [attr.d]="backgroundPath"              class="gauge arcs background {{extraClass}}"        ></path>      </g>      <g id="generatedContent" #generatedContent>      </g>      <g #needle>        <polygon #needlePointerShadow                 *ngIf="showNeedleShadow"                 [attr.points]="needlePolygonPoints"                 class="gauge needle pointer shadow {{extraClass}}"                 [attr.transform]="needleRotationShadow"                 [attr.transformOrigin]="needleTransformOrigin"></polygon>        <polygon #needlePointer                 [attr.points]="needlePolygonPoints"                 class="gauge needle pointer {{extraClass}}"                 [attr.transform]="needleRotation"                 [attr.transformOrigin]="needleTransformOrigin"></polygon>        <circle #needleCircle                [attr.cx]="this.cx" [attr.cy]="this.cy"                [attr.r]="needleBaseWidth"                class="gauge needle circle {{extraClass}}"        ></circle>        <circle #needlePin                [attr.cx]="this.cx" [attr.cy]="this.cy"                [attr.r]="needlePinRadius"                class="gauge needle pin {{extraClass}}"></circle>      </g>      <text #labelLeft class="gauge label left {{extraClass}}"            [attr.x]="labelLeftX"            [attr.y]="labelLeftY">{{labelTextLeft}}</text>      <text #labelRight class="gauge label right {{extraClass}}"            [attr.x]="labelRightX"            [attr.y]="labelRightY">{{labelTextRight}}</text>      <text #labelCenter class="gauge label center {{extraClass}}"            [attr.x]="labelCenterX"            [attr.y]="labelCenterY">{{this.needleTextValue}}</text>    </svg>  </section>  <footer  *ngIf="footer !== \'\'" class="gauge footer {{extraClass}}">    <h1 class="gauge caption {{extraClass}}">{{footer}}</h1>  </footer></article></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'VuMeterComponent', 'selector': 'app-vu-meter'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'VuMeterComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'VuMeterComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

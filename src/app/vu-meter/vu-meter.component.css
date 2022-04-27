@@ -1,0 +1,49 @@
+article.gauge {
+
+}
+
+article.gauge header {
+  background-color:darkgray;
+  color: white;
+}
+
+article.gauge footer h1,
+article.gauge header h1 {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 10pt;
+  text-align: center;
+  margin:0;
+}
+
+
+::ng-deep circle.arc:hover {
+  opacity: 50%;
+}
+
+text.label {
+  text-anchor: middle;
+}
+
+.gauge.arcs.background {
+  fill: rgb(220,220,220,0.5);
+  stroke: black;
+  stroke-width:10px;
+}
+
+.gauge.needle.circle,
+.gauge.needle.pointer {
+  fill: dodgerblue;
+  stroke: darkblue;
+}
+.gauge.needle.pointer.shadow {
+  opacity: 0.5;
+  fill: lightgray;
+  stroke:none;
+}
+
+
+.gauge.needle.pin {
+  stroke: none;
+  fill: white;
+}

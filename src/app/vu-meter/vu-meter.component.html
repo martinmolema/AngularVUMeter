@@ -1,0 +1,56 @@
+<article class="gauge container {{extraClass}}" style="width:{{width}}px">
+  <header *ngIf="caption !== ''" class="gauge header {{extraClass}}">
+    <h1 class="gauge caption {{extraClass}}">{{caption}}</h1>
+  </header>
+  <section  class="gauge container {{extraClass}}">
+    <svg [attr.width]="this.width" [attr.height]="this.height">
+      <defs>
+        <filter id="shadow-arc" x="0" y="0" width="200%" height="200%">
+          <feDropShadow [attr.dx]="arcShadowDepth" dy="0" stdDeviation="1" flood-color="lightgray" flood-opacity="1" />
+        </filter>
+      </defs>
+      <g>
+        <path #arcbackground
+              [attr.d]="backgroundPath"
+              class="gauge arcs background {{extraClass}}"
+        ></path>
+      </g>
+      <g id="generatedContent" #generatedContent>
+      </g>
+      <g #needle>
+        <polygon #needlePointerShadow
+                 *ngIf="showNeedleShadow"
+                 [attr.points]="needlePolygonPoints"
+                 class="gauge needle pointer shadow {{extraClass}}"
+                 [attr.transform]="needleRotationShadow"
+                 [attr.transformOrigin]="needleTransformOrigin"></polygon>
+        <polygon #needlePointer
+                 [attr.points]="needlePolygonPoints"
+                 class="gauge needle pointer {{extraClass}}"
+                 [attr.transform]="needleRotation"
+                 [attr.transformOrigin]="needleTransformOrigin"></polygon>
+        <circle #needleCircle
+                [attr.cx]="this.cx" [attr.cy]="this.cy"
+                [attr.r]="needleBaseWidth"
+                class="gauge needle circle {{extraClass}}"
+        ></circle>
+        <circle #needlePin
+                [attr.cx]="this.cx" [attr.cy]="this.cy"
+                [attr.r]="needlePinRadius"
+                class="gauge needle pin {{extraClass}}"></circle>
+      </g>
+      <text #labelLeft class="gauge label left {{extraClass}}"
+            [attr.x]="labelLeftX"
+            [attr.y]="labelLeftY">{{labelTextLeft}}</text>
+      <text #labelRight class="gauge label right {{extraClass}}"
+            [attr.x]="labelRightX"
+            [attr.y]="labelRightY">{{labelTextRight}}</text>
+      <text #labelCenter class="gauge label center {{extraClass}}"
+            [attr.x]="labelCenterX"
+            [attr.y]="labelCenterY">{{this.needleTextValue}}</text>
+    </svg>
+  </section>
+  <footer  *ngIf="footer !== ''" class="gauge footer {{extraClass}}">
+    <h1 class="gauge caption {{extraClass}}">{{footer}}</h1>
+  </footer>
+</article>

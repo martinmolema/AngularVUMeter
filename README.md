@@ -1,27 +1,23 @@
 # Gaugev13
+This component builds a Gauge or VU-meter using Scalable Vector Graphics. The current value is indicated
+using a customisable needle.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+![screenshot](docs/diagrams/screenshot-01.jpg)
 
-## Development server
+# Features
+* The arc of the VU-meter can have multiple parts in different colors.
+* optional shadow of needle and arc-parts
+* caption and footer
+* optional labels for current value (center) and minimal/maximal values
+* optional extra class to direct styling (using `:host ::ng-deep`)
+* needle will use animation when value is changed (using ease-in-out schema) with customisable delay
+* optional margins for top/bottom/sides
+* needle size can be adjusted
+* use percentage between 0 and 100 as a needle value instead of absolute values
+* guards against impossible values (null, undefined, out of range)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Documentation
+Documentation is generated using Compodoc. See Github Pages [documentation](https://martinmolema.github.io/AngularVUMeter/).
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Angular info
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.17.
