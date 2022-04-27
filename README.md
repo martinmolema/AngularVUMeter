@@ -17,7 +17,7 @@ using a customisable needle.
 * guards against impossible values (null, undefined, out of range)
 
 # Documentation
-Documentation is generated using Compodoc. See Github Pages [documentation](https://martinmolema.github.io/AngularVUMeter/).
+Documentation is generated using Compodoc. 
 
 ## Angular info
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.17.

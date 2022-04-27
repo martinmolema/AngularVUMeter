@@ -3,18 +3,19 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>gaugev13 documentation</title>
+        <title>Gauge/VU Meter docs</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
 	   <link rel="stylesheet" href="./styles/style.css">
         <link rel="stylesheet" href="./styles/dark.css">
+        <link rel="stylesheet" href="./styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="./" class="navbar-brand">gaugev13 documentation</a>
+            <a href="./" class="navbar-brand">Gauge/VU Meter docs</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -28,33 +29,35 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content getting-started">
+               <div class="content modules">
                    <div class="content-data">
 
-<h1 id="gaugev13">Gaugev13</h1>
-<p>This component builds a Gauge or VU-meter using Scalable Vector Graphics. The current value is indicated
-using a customisable needle.</p>
-<p><img src="docs/diagrams/screenshot-01.jpg" alt="screenshot" class="img-responsive"></p>
-<h1 id="features">Features</h1>
-<ul>
-<li>The arc of the VU-meter can have multiple parts in different colors.</li>
-<li>optional shadow of needle and arc-parts</li>
-<li>caption and footer</li>
-<li>optional labels for current value (center) and minimal/maximal values</li>
-<li>optional extra class to direct styling (using <code>:host ::ng-deep</code>)</li>
-<li>needle will use animation when value is changed (using ease-in-out schema) with customisable delay</li>
-<li>optional margins for top/bottom/sides</li>
-<li>needle size can be adjusted</li>
-<li>use percentage between 0 and 100 as a needle value instead of absolute values</li>
-<li>guards against impossible values (null, undefined, out of range)</li>
-</ul>
-<h1 id="documentation">Documentation</h1>
-<p>Documentation is generated using Compodoc. See Github Pages <a href="https://martinmolema.github.io/AngularVUMeter/">documentation</a>.</p>
-<h2 id="angular-info">Angular info</h2>
-<p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 12.2.17.</p>
 
 
-
+<ol class="breadcrumb">
+    <li>Modules</li>
+</ol>
+<div class="container-fluid modules">
+    <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-module">
+                    <div class="card-header">
+                        <h4 class="card-title">AppModule</h4>
+                    </div>
+                    <div class="card-block">
+                                <p>
+                                    <object id="demo-svg" type="image/svg+xml" lazy="./modules/AppModule/dependencies.svg" style="width: 100%; height: 175px;">
+                                        Your browser does not support SVG
+                                    </object>
+                                </p>
+                        <footer class="text-center">
+                            <a href="./modules/AppModule.html" class="btn btn-default">Browse</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
 
 
 
@@ -98,8 +101,8 @@ using a customisable needle.</p>
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
-            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'modules';
+            var COMPODOC_CURRENT_PAGE_URL = 'modules.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
