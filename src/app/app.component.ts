@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'gauge';
-  ranges1 = [-100, -80, -20, 0, 10];
-  colors1 = ['green', 'orange', 'red', 'darkred'];
+  ranges1 = [-100, -80, -20, 0, 15];
+  colors1 = ['green', 'orange', 'red', 'blue'];
 
-  ranges2 = [0,10,20,30,40];
+  ranges2 = [7,10,20,30,40];
   colors2 = ['green', 'orange', 'red', 'darkred'];
 
   ranges3 = [-100, -80, -20, 0, 10];

@@ -1,6 +1,6 @@
 <app-vu-meter
   caption="test 2"
-  [width]="350" [height]="200"
+  [width]="350" [height]="300"
   [needleValue]="needleValue" [needleValueIsPercentage]="false" [showNeedleValueAsText]="true"
   [marginBottom]="25" [marginSide]="20" [marginTop]="5"
   [needleBaseWidth]="7" [needleLengthPercentage]="100" [showNeedleShadow]="true" [needleShadowOffsetInDegrees]="5"
@@ -9,6 +9,7 @@
   [ranges]="ranges2" [colors]="colors2" [arcSpacing]="0"
   extraClass="martin"
   [timeOutduration]="500"
+  [arcSpanDegrees]="90" [centralValueTextVerticalCorrection]="20"
 ></app-vu-meter>
 <br>
 <br>
@@ -16,13 +17,27 @@
 <br>
 
 <app-vu-meter
-  [width]="300" [height]="100"
+  [width]="300" [height]="250"
   [needleValue]="needleValue" [needleValueIsPercentage]="true"
-  [marginBottom]="25" [marginSide]="3" [marginTop]="5"
+  [marginBottom]="25" [marginSide]="30" [marginTop]="5"
   [needleBaseWidth]="4" [needleLengthPercentage]="105" [needlePinRadius]="1"
   [strokeWidth]="10" [showNeedleValueAsText]="true"
   [ranges]="ranges1" [colors]="colors1" [arcSpacing]="4"
   [timeOutduration]="1500"
+  [arcSpanDegrees]="230" [centralValueTextVerticalCorrection]="20" [valueLabelsVerticalOffset]="10"
+></app-vu-meter>
+<br>
+<br>
+<br>
+<app-vu-meter
+  [width]="300" [height]="230"
+  [needleValue]="needleValue" [needleValueIsPercentage]="true"
+  [marginBottom]="25" [marginSide]="30" [marginTop]="5"
+  [needleBaseWidth]="4" [needleLengthPercentage]="105" [needlePinRadius]="1"
+  [strokeWidth]="10" [showNeedleValueAsText]="true"
+  [ranges]="ranges1" [colors]="colors1" [arcSpacing]="4"
+  [timeOutduration]="1500"
+  [arcSpanDegrees]="190" [centralValueTextVerticalCorrection]="20" [valueLabelsVerticalOffset]="10"
 ></app-vu-meter>
 <br>
 <br>
@@ -38,6 +53,9 @@
   [strokeWidth]="10"
   [ranges]="ranges3" [colors]="colors3" [arcSpacing]="4"
   [timeOutduration]="200"
+  [centralValueTextVerticalCorrection]="20"
+  [autoRotateArcTexts]="false"
+  [valueLabelsVerticalOffset]="20"
 ></app-vu-meter>
 <br>
 

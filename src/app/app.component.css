@@ -10,7 +10,7 @@
   font-weight: bold;
 }
 :host ::ng-deep path.gauge.arcs.background.martin {
-  fill: white;
+  fill: antiquewhite;
 }
 :host ::ng-deep path.gauge.arcs.background {
   fill: lightgray;
@@ -25,6 +25,12 @@
 :host ::ng-deep .circle.gauge.needle.martin  {
   fill: black;
   stroke: black;
+}
+
+
+:host ::ng-deep article.gauge {
+  border: 1px solid black;
+  padding: 4px;
 }
 
 
