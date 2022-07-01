@@ -16,19 +16,19 @@ article.gauge header h1 {
   margin:0;
 }
 
-
 ::ng-deep circle.arc:hover {
   opacity: 50%;
 }
 
-text.label {
-  text-anchor: middle;
+::ng-deep text.gauge.marker.text.shadow {
+  stroke: none;
+  fill: lightgray;
 }
 
 .gauge.arcs.background {
   fill: rgb(220,220,220,0.5);
-  stroke: black;
-  stroke-width:10px;
+  stroke: green;
+  stroke-width:1px;
 }
 
 .gauge.needle.circle,

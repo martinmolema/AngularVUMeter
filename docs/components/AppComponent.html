@@ -196,7 +196,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>[&#x27;green&#x27;, &#x27;orange&#x27;, &#x27;red&#x27;, &#x27;darkred&#x27;]</code>
+                        <i>Default value : </i><code>[&#x27;green&#x27;, &#x27;orange&#x27;, &#x27;red&#x27;, &#x27;blue&#x27;]</code>
                     </td>
                 </tr>
                     <tr>
@@ -321,7 +321,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>[-100, -80, -20, 0, 10]</code>
+                        <i>Default value : </i><code>[-100, -80, -20, 0, 15]</code>
                     </td>
                 </tr>
                     <tr>
@@ -352,7 +352,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>[0,10,20,30,40]</code>
+                        <i>Default value : </i><code>[7,10,20,30,40]</code>
                     </td>
                 </tr>
                     <tr>
@@ -441,10 +441,10 @@
 })
 export class AppComponent {
   title &#x3D; &#x27;gauge&#x27;;
-  ranges1 &#x3D; [-100, -80, -20, 0, 10];
-  colors1 &#x3D; [&#x27;green&#x27;, &#x27;orange&#x27;, &#x27;red&#x27;, &#x27;darkred&#x27;];
+  ranges1 &#x3D; [-100, -80, -20, 0, 15];
+  colors1 &#x3D; [&#x27;green&#x27;, &#x27;orange&#x27;, &#x27;red&#x27;, &#x27;blue&#x27;];
 
-  ranges2 &#x3D; [0,10,20,30,40];
+  ranges2 &#x3D; [7,10,20,30,40];
   colors2 &#x3D; [&#x27;green&#x27;, &#x27;orange&#x27;, &#x27;red&#x27;, &#x27;darkred&#x27;];
 
   ranges3 &#x3D; [-100, -80, -20, 0, 10];
@@ -457,7 +457,7 @@ export class AppComponent {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;app-vu-meter
   caption&#x3D;&quot;test 2&quot;
-  [width]&#x3D;&quot;350&quot; [height]&#x3D;&quot;200&quot;
+  [width]&#x3D;&quot;350&quot; [height]&#x3D;&quot;300&quot;
   [needleValue]&#x3D;&quot;needleValue&quot; [needleValueIsPercentage]&#x3D;&quot;false&quot; [showNeedleValueAsText]&#x3D;&quot;true&quot;
   [marginBottom]&#x3D;&quot;25&quot; [marginSide]&#x3D;&quot;20&quot; [marginTop]&#x3D;&quot;5&quot;
   [needleBaseWidth]&#x3D;&quot;7&quot; [needleLengthPercentage]&#x3D;&quot;100&quot; [showNeedleShadow]&#x3D;&quot;true&quot; [needleShadowOffsetInDegrees]&#x3D;&quot;5&quot;
@@ -466,6 +466,7 @@ export class AppComponent {
   [ranges]&#x3D;&quot;ranges2&quot; [colors]&#x3D;&quot;colors2&quot; [arcSpacing]&#x3D;&quot;0&quot;
   extraClass&#x3D;&quot;martin&quot;
   [timeOutduration]&#x3D;&quot;500&quot;
+  [arcSpanDegrees]&#x3D;&quot;90&quot; [centralValueTextVerticalCorrection]&#x3D;&quot;20&quot;
 &gt;&lt;/app-vu-meter&gt;
 &lt;br&gt;
 &lt;br&gt;
@@ -473,13 +474,27 @@ export class AppComponent {
 &lt;br&gt;
 
 &lt;app-vu-meter
-  [width]&#x3D;&quot;300&quot; [height]&#x3D;&quot;100&quot;
+  [width]&#x3D;&quot;300&quot; [height]&#x3D;&quot;250&quot;
   [needleValue]&#x3D;&quot;needleValue&quot; [needleValueIsPercentage]&#x3D;&quot;true&quot;
-  [marginBottom]&#x3D;&quot;25&quot; [marginSide]&#x3D;&quot;3&quot; [marginTop]&#x3D;&quot;5&quot;
+  [marginBottom]&#x3D;&quot;25&quot; [marginSide]&#x3D;&quot;30&quot; [marginTop]&#x3D;&quot;5&quot;
   [needleBaseWidth]&#x3D;&quot;4&quot; [needleLengthPercentage]&#x3D;&quot;105&quot; [needlePinRadius]&#x3D;&quot;1&quot;
   [strokeWidth]&#x3D;&quot;10&quot; [showNeedleValueAsText]&#x3D;&quot;true&quot;
   [ranges]&#x3D;&quot;ranges1&quot; [colors]&#x3D;&quot;colors1&quot; [arcSpacing]&#x3D;&quot;4&quot;
   [timeOutduration]&#x3D;&quot;1500&quot;
+  [arcSpanDegrees]&#x3D;&quot;230&quot; [centralValueTextVerticalCorrection]&#x3D;&quot;20&quot; [valueLabelsVerticalOffset]&#x3D;&quot;10&quot;
+&gt;&lt;/app-vu-meter&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;app-vu-meter
+  [width]&#x3D;&quot;300&quot; [height]&#x3D;&quot;230&quot;
+  [needleValue]&#x3D;&quot;needleValue&quot; [needleValueIsPercentage]&#x3D;&quot;true&quot;
+  [marginBottom]&#x3D;&quot;25&quot; [marginSide]&#x3D;&quot;30&quot; [marginTop]&#x3D;&quot;5&quot;
+  [needleBaseWidth]&#x3D;&quot;4&quot; [needleLengthPercentage]&#x3D;&quot;105&quot; [needlePinRadius]&#x3D;&quot;1&quot;
+  [strokeWidth]&#x3D;&quot;10&quot; [showNeedleValueAsText]&#x3D;&quot;true&quot;
+  [ranges]&#x3D;&quot;ranges1&quot; [colors]&#x3D;&quot;colors1&quot; [arcSpacing]&#x3D;&quot;4&quot;
+  [timeOutduration]&#x3D;&quot;1500&quot;
+  [arcSpanDegrees]&#x3D;&quot;190&quot; [centralValueTextVerticalCorrection]&#x3D;&quot;20&quot; [valueLabelsVerticalOffset]&#x3D;&quot;10&quot;
 &gt;&lt;/app-vu-meter&gt;
 &lt;br&gt;
 &lt;br&gt;
@@ -495,6 +510,9 @@ export class AppComponent {
   [strokeWidth]&#x3D;&quot;10&quot;
   [ranges]&#x3D;&quot;ranges3&quot; [colors]&#x3D;&quot;colors3&quot; [arcSpacing]&#x3D;&quot;4&quot;
   [timeOutduration]&#x3D;&quot;200&quot;
+  [centralValueTextVerticalCorrection]&#x3D;&quot;20&quot;
+  [autoRotateArcTexts]&#x3D;&quot;false&quot;
+  [valueLabelsVerticalOffset]&#x3D;&quot;20&quot;
 &gt;&lt;/app-vu-meter&gt;
 &lt;br&gt;
 
@@ -518,7 +536,7 @@ export class AppComponent {
   font-weight: bold;
 }
 :host ::ng-deep path.gauge.arcs.background.martin {
-  fill: white;
+  fill: antiquewhite;
 }
 :host ::ng-deep path.gauge.arcs.background {
   fill: lightgray;
@@ -533,6 +551,12 @@ export class AppComponent {
 :host ::ng-deep .circle.gauge.needle.martin  {
   fill: black;
   stroke: black;
+}
+
+
+:host ::ng-deep article.gauge {
+  border: 1px solid black;
+  padding: 4px;
 }
 
 
@@ -570,7 +594,7 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-vu-meter  caption="test 2"  [width]="350" [height]="200"  [needleValue]="needleValue" [needleValueIsPercentage]="false" [showNeedleValueAsText]="true"  [marginBottom]="25" [marginSide]="20" [marginTop]="5"  [needleBaseWidth]="7" [needleLengthPercentage]="100" [showNeedleShadow]="true" [needleShadowOffsetInDegrees]="5"  [useArcShadows]="true" [arcShadowDepth]="-5"  [strokeWidth]="15"  [ranges]="ranges2" [colors]="colors2" [arcSpacing]="0"  extraClass="martin"  [timeOutduration]="500"></app-vu-meter><br><br><br><br><app-vu-meter  [width]="300" [height]="100"  [needleValue]="needleValue" [needleValueIsPercentage]="true"  [marginBottom]="25" [marginSide]="3" [marginTop]="5"  [needleBaseWidth]="4" [needleLengthPercentage]="105" [needlePinRadius]="1"  [strokeWidth]="10" [showNeedleValueAsText]="true"  [ranges]="ranges1" [colors]="colors1" [arcSpacing]="4"  [timeOutduration]="1500"></app-vu-meter><br><br><br><br><app-vu-meter  footer="test 3"  [width]="400" [height]="220"  [needleValue]="needleValue" [needleValueIsPercentage]="false" [showNeedleValueAsText]="true"  [marginBottom]="25" [marginSide]="10" [marginTop]="5"  [needleBaseWidth]="10" [needleLengthPercentage]="50"  [strokeWidth]="10"  [ranges]="ranges3" [colors]="colors3" [arcSpacing]="4"  [timeOutduration]="200"></app-vu-meter><br><input [(ngModel)]="needleValue" type="number"></div>'
+        var COMPONENT_TEMPLATE = '<div><app-vu-meter  caption="test 2"  [width]="350" [height]="300"  [needleValue]="needleValue" [needleValueIsPercentage]="false" [showNeedleValueAsText]="true"  [marginBottom]="25" [marginSide]="20" [marginTop]="5"  [needleBaseWidth]="7" [needleLengthPercentage]="100" [showNeedleShadow]="true" [needleShadowOffsetInDegrees]="5"  [useArcShadows]="true" [arcShadowDepth]="-5"  [strokeWidth]="15"  [ranges]="ranges2" [colors]="colors2" [arcSpacing]="0"  extraClass="martin"  [timeOutduration]="500"  [arcSpanDegrees]="90" [centralValueTextVerticalCorrection]="20"></app-vu-meter><br><br><br><br><app-vu-meter  [width]="300" [height]="250"  [needleValue]="needleValue" [needleValueIsPercentage]="true"  [marginBottom]="25" [marginSide]="30" [marginTop]="5"  [needleBaseWidth]="4" [needleLengthPercentage]="105" [needlePinRadius]="1"  [strokeWidth]="10" [showNeedleValueAsText]="true"  [ranges]="ranges1" [colors]="colors1" [arcSpacing]="4"  [timeOutduration]="1500"  [arcSpanDegrees]="230" [centralValueTextVerticalCorrection]="20" [valueLabelsVerticalOffset]="10"></app-vu-meter><br><br><br><app-vu-meter  [width]="300" [height]="230"  [needleValue]="needleValue" [needleValueIsPercentage]="true"  [marginBottom]="25" [marginSide]="30" [marginTop]="5"  [needleBaseWidth]="4" [needleLengthPercentage]="105" [needlePinRadius]="1"  [strokeWidth]="10" [showNeedleValueAsText]="true"  [ranges]="ranges1" [colors]="colors1" [arcSpacing]="4"  [timeOutduration]="1500"  [arcSpanDegrees]="190" [centralValueTextVerticalCorrection]="20" [valueLabelsVerticalOffset]="10"></app-vu-meter><br><br><br><br><app-vu-meter  footer="test 3"  [width]="400" [height]="220"  [needleValue]="needleValue" [needleValueIsPercentage]="false" [showNeedleValueAsText]="true"  [marginBottom]="25" [marginSide]="10" [marginTop]="5"  [needleBaseWidth]="10" [needleLengthPercentage]="50"  [strokeWidth]="10"  [ranges]="ranges3" [colors]="colors3" [arcSpacing]="4"  [timeOutduration]="200"  [centralValueTextVerticalCorrection]="20"  [autoRotateArcTexts]="false"  [valueLabelsVerticalOffset]="20"></app-vu-meter><br><input [(ngModel)]="needleValue" type="number"></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'VuMeterComponent', 'selector': 'app-vu-meter'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};

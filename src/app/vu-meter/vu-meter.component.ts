@@ -64,8 +64,29 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
   /** the time out duration in milliseconds to animate changes */
   @Input() timeOutduration = 500;
 
-  @Input() autoRotateArcTexts = true;
-  @Input() valueLabelsVerticalOffset = 0;
+  /** Whether or not to show the unit markers. These are css-stylable lines  */
+  @Input() showUnitMarkers = true;
+
+  /** The unit of the small unit markers. This is tested using the MODULO operator */
+  @Input() markerSmallUnit = 1;
+  /** The length of the line for a small marker */
+  @Input() markerSmallLength = 5;
+  /** A small marker line can be shifted to the inside (negative value) of further out (positive value) */
+  @Input() markerSmallOffset = 5;
+
+  /** The unit of the small unit markers. This is tested using the MODULO operator */
+  @Input() markerLargeUnit = 10;
+  /** The length of the line for a large marker */
+  @Input() markerLargeLength = 15;
+  /** A large marker line can be shifted to the inside (negative value) of further out (positive value) */
+  @Input() markerLargeOffset = 5;
+
+  /** Whether or not to show the marker value in text for large values (e.g. every 10th value) */
+  @Input() showMarkerTextLarge = true;
+  /** Whether or not to show the marker value in text for small values (e.g. every even value) */
+  @Input() showMarkerTextSmall = false;
+  /** The amount to shift/offset the text for markers. negative values will push the marker text outside the arcs */
+  @Input() markerTextOffset = 10;
 
   /** The total degrees the arc spans. So 360 degrees is a full circle, 180 degrees is half a circle*/
   @Input() arcSpanDegrees = 180;
@@ -94,12 +115,13 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
   /** The Y-position of the center label */
   public labelCenterY = 0;
 
+/* obsolete now that markers are introduced
   public labelLeftRotate = 'rotate(0)';
   public labelRightRotate = 'rotate(0)';
-
+*/
 
   /**  */
-  public needleRotation =  '';
+  public needleRotation = '';
   /**  */
   public needlePolygonPoints = '';
   /**  */
@@ -110,7 +132,8 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
   public needleMaxValue: number;
   /**  */
   public needleMinValue: number;
-  /**  */
+
+  /** the distance between the minimal needle value and maximal needle value */
   public needleValueRange: number;
   /**  */
   public needleRotationShadow = '';
@@ -125,8 +148,8 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
   private circleBoundingBox: Rectangle;
   private timerRef: any;
 
-  public labelTextLeft = '';
-  public labelTextRight = '';
+  private correctedNeedleMinValue: number = 0;
+  private correctedNeedleMaxValue: number = 0;
 
   constructor() {
     this.needleValue = 0;
@@ -134,7 +157,7 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
     this.colors = [];
     this.circumference = 0;
     this.strokeWidth = 10;
-    this.width  = 2;
+    this.width = 2;
     this.height = 2;
     this.marginBottom = 0;
     this.marginSide = 0;
@@ -153,6 +176,9 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   ngAfterViewInit(): void {
+    this.createArcs();
+    this.createMarkerTexts();
+    this.createMarkers();
     this.update();
   }// ngAfterViewInit
 
@@ -163,7 +189,9 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
         isNaN(changes['needleValue'].currentValue) ||
         changes['needleValue'].currentValue === undefined ||
         changes['needleValue'].currentValue === null
-      ) { return ; }
+      ) {
+        return;
+      }
 
       // check if there is already an animation running; if so, cancel it, so we can start again continuing from the
       // current version
@@ -173,22 +201,21 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
       if (changes['needleValue'].isFirstChange()) {
         this.internalNeedleValue = changes['needleValue'].currentValue;
         this.update();
-      }
-      else {
+      } else {
         const startValue = changes['needleValue'].previousValue;
-        const endValue   = changes['needleValue'].currentValue;
+        const endValue = changes['needleValue'].currentValue;
 
-        let   numberOfTimeOutSteps = 10; // maximum number of steps
-        const timeOutStepDuration  = this.timeOutduration / numberOfTimeOutSteps;
+        let numberOfTimeOutSteps = 10; // maximum number of steps
+        const timeOutStepDuration = this.timeOutduration / numberOfTimeOutSteps;
         let animationStepper = 0;
         const easeInStepValue = 1 / (numberOfTimeOutSteps - 1);
 
         this.internalNeedleValue = startValue;
         this.update();
-        this.timerRef = window.setInterval(()=> {
+        this.timerRef = window.setInterval(() => {
           // see https://css-tricks.com/emulating-css-timing-functions-javascript/
-          const factor = 0.5*(Math.sin((animationStepper - 0.5)*Math.PI) + 1); // ease-in-out function
-          this.internalNeedleValue = startValue + (endValue - startValue ) * factor;
+          const factor = 0.5 * (Math.sin((animationStepper - 0.5) * Math.PI) + 1); // ease-in-out function
+          this.internalNeedleValue = startValue + (endValue - startValue) * factor;
           this.update(false);
 
           numberOfTimeOutSteps--;
@@ -207,14 +234,17 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
 
 
   private setupConfig(): void {
-    this.needleMaxValue   = Math.max(...this.ranges);
-    this.needleMinValue   = Math.min(...this.ranges);
+    this.needleMaxValue = Math.max(...this.ranges);
+    this.needleMinValue = Math.min(...this.ranges);
     this.needleValueRange = Math.abs(this.needleMaxValue - this.needleMinValue);
+
+    this.correctedNeedleMinValue = this.needleValueIsPercentage ? 0 : this.needleMinValue;
+    this.correctedNeedleMaxValue = this.needleValueIsPercentage ? 100 : this.needleMaxValue;
 
     this.arcSpanGapDegrees = 360 - this.arcSpanDegrees;
 
     // if the needle angle is zero, then the needle is pointing upward!
-    this.needleLeftAngle   =  0 - (this.arcSpanDegrees / 2);
+    this.needleLeftAngle = 0 - (this.arcSpanDegrees / 2);
 
     this.drawingBox.update(
       this.marginSide,
@@ -224,8 +254,7 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
     );
     if (this.drawingBox.ratioWH < 2.1) {
       this.radius = this.drawingBox.w / 2;
-    }
-    else {
+    } else {
       this.radius = this.drawingBox.h;
     }
 
@@ -236,9 +265,9 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
     const needleLength = (this.radius) * (this.needleLengthPercentage / 100);
 
     let centerYCorrection = 0;
-    if (this.arcSpanDegrees > 180 ) {
+    if (this.arcSpanDegrees > 180) {
       // raise the center so the bottom half is visible
-      centerYCorrection = Math.abs(Math.sin(90 + this.arcSpanDegrees / 2) * this.radius );
+      centerYCorrection = Math.abs(Math.sin(90 + this.arcSpanDegrees / 2) * this.radius);
     }
 
     this.cx = this.drawingBox.x1 + this.drawingBox.w / 2;
@@ -257,20 +286,14 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
     );
 
     const angleOfHalfArcInDegrees = (90 - (this.arcSpanDegrees / 2));
-    const angleOfHalfArcInRadians = (angleOfHalfArcInDegrees / 360) * ( 2 * Math.PI);
+    const angleOfHalfArcInRadians = (angleOfHalfArcInDegrees / 360) * (2 * Math.PI);
     const distanceXOfHalfArc = Math.cos(angleOfHalfArcInRadians) * (this.radius + this.strokeWidth);
     const distanceYOfHalfArc = Math.sin(angleOfHalfArcInRadians) * (this.radius + this.strokeWidth);
 
-    this.labelLeftX  = this.cx - distanceXOfHalfArc;
-    this.labelRightX = this.cx + distanceXOfHalfArc;
-
-    this.labelLeftY  = this.cy - distanceYOfHalfArc;
-    this.labelRightY = this.labelLeftY;
-
     const circleStartX = this.cx - Math.cos(angleOfHalfArcInRadians) * this.radius;
-    const circleEndX   = this.cx + Math.cos(angleOfHalfArcInRadians) * this.radius;
+    const circleEndX = this.cx + Math.cos(angleOfHalfArcInRadians) * this.radius;
     const circleStartY = this.cy - Math.sin(angleOfHalfArcInRadians) * this.radius;
-    const circleEndY   = circleStartY;
+    const circleEndY = circleStartY;
     let sweepflag = this.arcSpanDegrees < 180 ? 0 : 1;
 
     //https://www.w3.org/TR/SVG/images/paths/arcs02.svg for last 2 parameters
@@ -284,54 +307,59 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
     `;
 
     /* calculate rotation of labels */
+    this.labelLeftX = this.cx - distanceXOfHalfArc;
+    this.labelRightX = this.cx + distanceXOfHalfArc;
+
+    this.labelLeftY = this.cy - distanceYOfHalfArc;
+    this.labelRightY = this.labelLeftY;
+
+/*
 
     if (this.autoRotateArcTexts) {
-      let rotateLeft  = 0;
+      let rotateLeft = 0;
       let rotateRight = 0;
-      if (this.arcSpanDegrees  < 180) {
+      if (this.arcSpanDegrees < 180) {
         rotateLeft = -this.arcSpanDegrees / 2;
         rotateRight = this.arcSpanDegrees / 2;
-      }
-      else {
-        rotateLeft  = - (this.arcSpanDegrees / 2 + 180);
+      } else {
+        rotateLeft = -(this.arcSpanDegrees / 2 + 180);
         rotateRight = this.arcSpanDegrees / 2 + 180;
       }
       console.log(this.labelLeftX, this.labelLeftY);
       console.log(this.labelRightX, this.labelRightY);
-      this.labelLeftRotate  = `rotate(${rotateLeft}, ${this.labelLeftX}, ${this.labelLeftY})`;
+      this.labelLeftRotate = `rotate(${rotateLeft}, ${this.labelLeftX}, ${this.labelLeftY})`;
       this.labelRightRotate = `rotate(${rotateRight}, ${this.labelRightX}, ${this.labelRightY})`;
-    }
-    else{
+    } else {
       this.labelRightRotate = `rotate(0)`;
-      this.labelLeftRotate  = `rotate(0)`;
+      this.labelLeftRotate = `rotate(0)`;
     }
 
     this.labelRightRotate += ` translate(0, ${this.valueLabelsVerticalOffset})`;
-    this.labelLeftRotate  += ` translate(0, ${this.valueLabelsVerticalOffset})`;
+    this.labelLeftRotate += ` translate(0, ${this.valueLabelsVerticalOffset})`;
 
     if (this.showRangeLabels) {
-      if (this.needleValueIsPercentage){
+      if (this.needleValueIsPercentage) {
         this.labelTextLeft = '0%';
         this.labelTextRight = '100%';
-      }
-      else{
+      } else {
         this.labelTextLeft = this.ranges[0].toString(10);
         this.labelTextRight = this.needleMaxValue.toString(10);
       }
 
     }
+*/
 
     // this.labelCenterX = this.textBox.x1 + this.textBox.w / 2;
     // this.labelCenterY = this.textBox.y2;
     this.labelCenterX = this.cx;
-    this.labelCenterY = this.cy + this.needlePinRadius + this.centralValueTextVerticalCorrection ;
-    this.needlePolygonPoints   = `${this.cx - needleWidth},${this.cy} ${this.cx},${this.cy - needleLength} ${this.cx + needleWidth},${this.cy}`;
+    this.labelCenterY = this.cy + this.needlePinRadius + this.centralValueTextVerticalCorrection;
+    this.needlePolygonPoints = `${this.cx - needleWidth},${this.cy} ${this.cx},${this.cy - needleLength} ${this.cx + needleWidth},${this.cy}`;
     this.needleTransformOrigin = `${this.cx},${this.cy}`;
 
-  }
+
+  }//setupConfig
 
   private update(updateText: boolean = true): void {
-    this.createArcs();
     this.updateNeedle();
     if (updateText) {
       this.updateNeedleText();
@@ -341,18 +369,145 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
   private createArcs(): void {
     const svgParent = this.elGeneratedContent?.nativeElement;
     this.clearArcs();
-    if (svgParent === undefined) { return ; }
-    if (this.ranges.length < 2 ) { console.error('VuMeterComponent::Need minimal 2 ranges.'); return ; }
-    if (this.colors.length !== this.ranges.length - 1 ) {
+    if (svgParent === undefined) {
+      return;
+    }
+    if (this.ranges.length < 2) {
+      console.error('VuMeterComponent::Need minimal 2 ranges.');
+      return;
+    }
+    if (this.colors.length !== this.ranges.length - 1) {
       console.error('VuMeterComponent::Number of colors and ranges do not match.');
-      return ;
+      return;
     }
 
     for (let segmentNr = 0; segmentNr < this.ranges.length - 1; segmentNr++) {
       const newCircle = this.createOneArc(segmentNr);
       svgParent.appendChild(newCircle);
     }
-  }// createLineSegments
+    this.createMarkers();
+    this.createMarkerTexts();
+
+  }// createArcs
+
+  private createMarkers(): void {
+
+    if (!this.showUnitMarkers) { return ;}
+
+    const svgParent = this.elGeneratedContent?.nativeElement;
+    for (let m = this.needleMinValue; m <= this.needleMaxValue; m++) {
+      let markerLength = 0;
+      let markerOffset = 0;
+      let value = m;
+      if (this.needleValueIsPercentage) {
+        value = Math.floor(((m - this.needleMinValue) / this.needleValueRange) * 100)
+      }
+
+
+      if (value % this.markerLargeUnit === 0) {
+        markerLength = this.markerLargeLength;
+        markerOffset = this.markerLargeOffset;
+      }
+      else if (value % this.markerSmallUnit === 0) {
+        markerLength = this.markerSmallLength;
+        markerOffset = this.markerSmallOffset;
+      }
+
+      const x1 = this.cx - (this.radius + markerOffset);
+      const y1 = this.cy;
+      const x2 = this.cx - (this.radius + markerOffset - markerLength);
+      const y2 = this.cy;
+
+      const pos = (m - this.needleMinValue) / (this.needleValueRange);
+      const rotation = 90 - (this.arcSpanDegrees / 2) + (pos * this.arcSpanDegrees);
+
+      const markerLine = SVGFactory.createElement(SVGElementType.Line) as SVGElement;
+      markerLine.setAttribute('x1', `${x1}`);
+      markerLine.setAttribute('y1', `${y1}`);
+      markerLine.setAttribute('x2', `${x2}`);
+      markerLine.setAttribute('y2', `${y2}`);
+      markerLine.setAttribute('stroke-width', '1');
+      markerLine.setAttribute('stroke', 'black');
+      markerLine.setAttribute('fill', 'none');
+      markerLine.setAttribute('class', `gauge marker ${this.extraClass}`);
+      markerLine.setAttribute('transform', `rotate(${rotation},${this.cx},${this.cy})`);
+
+      svgParent.appendChild(markerLine);
+    }
+  }//createMarkers
+
+  createMarkerTexts(): void {
+    const svgParent = this.elGeneratedContent?.nativeElement;
+
+
+    if (this.correctedNeedleMinValue % this.markerLargeUnit !== 0 ) {
+      this.addMarkerText(svgParent, this.needleMinValue, this.correctedNeedleMinValue);
+    }
+
+    if (this.correctedNeedleMaxValue % this.markerLargeUnit !== 0 ) {
+      this.addMarkerText(svgParent, this.needleMaxValue, this.correctedNeedleMaxValue);
+    }
+
+    for (let m = this.needleMinValue; m <= this.needleMaxValue; m++) {
+      let value;
+      if (this.needleValueIsPercentage) {
+        value = Math.trunc (((m - this.needleMinValue) / this.needleValueRange) * 100);
+      }
+      else {
+        value = m;
+      }
+      if (value % this.markerLargeUnit === 0 && this.showMarkerTextLarge) {
+        this.addMarkerText(svgParent, m, value);
+      }
+      else if (value % this.markerSmallUnit === 0 && this.showMarkerTextSmall) {
+        this.addMarkerText(svgParent, m, value);
+      }
+    }
+  }// createMarkerTexts
+
+  addMarkerText(parent: any, value: number, captionValue: number):void {
+    let angleInDegreesForPosition;
+    let textRotateAngleInDegrees;
+
+    const percentage = ((value - this.needleMinValue) / this.needleValueRange);
+    const positionInDegrees = percentage * this.arcSpanDegrees;
+
+    // calculate angle of rotation to calculate the position of the text
+    angleInDegreesForPosition = -90 - (this.arcSpanDegrees / 2) + positionInDegrees;
+
+    // calculate how the text itself should be rotated
+    textRotateAngleInDegrees  = -90 - (this.arcSpanDegrees / 2) + positionInDegrees + 90;
+
+    const angleInRadians = (angleInDegreesForPosition / 360) * (Math.PI * 2)
+    const tx = this.cx + Math.cos(angleInRadians) * (this.radius - this.markerTextOffset);
+    const ty = this.cy + Math.sin(angleInRadians) * (this.radius - this.markerTextOffset);
+
+    const text1 = SVGFactory.createElement(SVGElementType.Text) as SVGElement;
+    const text2 = SVGFactory.createElement(SVGElementType.Text) as SVGElement;
+    text1.setAttribute('x', `${tx}`);
+    text1.setAttribute('y', `${ty}`);
+    text1.setAttribute('text-anchor', `middle`);
+    text1.setAttribute('class', `gauge marker text ${this.extraClass}`);
+    text1.setAttribute('transform', `rotate(${textRotateAngleInDegrees} ${tx} ${ty})`);
+
+    text2.setAttribute('x', `${tx}`);
+    text2.setAttribute('y', `${ty}`);
+    text2.setAttribute('text-anchor', `middle`);
+    text2.setAttribute('class', `gauge marker text shadow ${this.extraClass}`);
+    text2.setAttribute('transform', `rotate(${textRotateAngleInDegrees} ${tx} ${ty}) translate(1,1)`);
+
+    if (this.needleValueIsPercentage) {
+      text1.textContent = `${captionValue}%`;
+      text2.textContent = `${captionValue}%`;
+    }
+    else {
+      text1.textContent = `${captionValue}`;
+      text2.textContent = `${captionValue}`;
+    }
+
+    parent.appendChild(text2);
+    parent.appendChild(text1);
+  }//createMarkerText
 
   /**
    * Removes all generated contents for the visible arcs
@@ -360,16 +515,17 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
    */
   private clearArcs(): void {
     const svgParent = this.elGeneratedContent?.nativeElement;
-    if (svgParent === undefined) { return ; }
+    if (svgParent === undefined) {
+      return;
+    }
     while (svgParent.children.length > 0) {
       svgParent.firstChild.remove();
     }
   }
 
   private updateNeedle(): void {
-    console.log(this.needleLeftAngle);
-    const needlePercentage = this.adjustedNeedleValue(this.needleValueIsPercentage);
-    const needleAngle = this.needleLeftAngle + (needlePercentage / 100 ) * this.arcSpanDegrees;
+    const needlePercentage = this.adjustedNeedleValue();
+    const needleAngle = this.needleLeftAngle + (needlePercentage / 100) * this.arcSpanDegrees;
 
     // 50% means shadow is cast directly under the needle; < 50% = left ; >50% is right
     const shadowOffset = (-50 + needlePercentage) / 100 * this.needleShadowOffsetInDegrees;
@@ -378,14 +534,13 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
     this.needleRotationShadow = `rotate(${needleAngle + shadowOffset},${this.cx},${this.cy})`;
   }
 
-  private adjustedNeedleValue(needleValueIsPercentage: boolean): number {
+  private adjustedNeedleValue(): number {
     let needleRecalculatedValue;
-    if (needleValueIsPercentage) {
+    if (this.needleValueIsPercentage) {
       needleRecalculatedValue = this.internalNeedleValue;
       needleRecalculatedValue = Math.min(needleRecalculatedValue, 100);
       needleRecalculatedValue = Math.max(needleRecalculatedValue, 0);
-    }
-    else{
+    } else {
       needleRecalculatedValue = this.mapValueToPercentage(this.needleMinValue, this.needleMaxValue, this.internalNeedleValue) * 100;
       needleRecalculatedValue = Math.min(needleRecalculatedValue, 100);
       needleRecalculatedValue = Math.max(needleRecalculatedValue, 0);
@@ -396,7 +551,7 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
   private updateNeedleText(): void {
     if (this.showNeedleValueAsText) {
       if (this.needleValueIsPercentage) {
-        this.needleTextValue = this.adjustedNeedleValue(this.needleValueIsPercentage).toFixed(0) + '%';
+        this.needleTextValue = this.adjustedNeedleValue().toFixed(0) + '%';
       } else {
         this.needleTextValue = this.internalNeedleValue.toString(10);
       }
@@ -405,30 +560,30 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
 
   private createOneArc(rangePosition: number): SVGElement {
     const newCircle = SVGFactory.createElement(SVGElementType.Circle) as SVGElement;
-    newCircle.setAttribute('r' , this.radius.toFixed(2));
-    newCircle.setAttribute('cx' , `${this.cx}`);
-    newCircle.setAttribute('cy' , `${this.cy}`);
-    newCircle.setAttribute('stroke-width' , `${this.strokeWidth}`);
-    newCircle.setAttribute('stroke' , this.colors[rangePosition]);
-    newCircle.setAttribute('fill' , 'none');
-    newCircle.setAttribute('class' , `gauge arc ${this.extraClass}`);
+    newCircle.setAttribute('r', this.radius.toFixed(2));
+    newCircle.setAttribute('cx', `${this.cx}`);
+    newCircle.setAttribute('cy', `${this.cy}`);
+    newCircle.setAttribute('stroke-width', `${this.strokeWidth}`);
+    newCircle.setAttribute('stroke', this.colors[rangePosition]);
+    newCircle.setAttribute('fill', 'none');
+    newCircle.setAttribute('class', `gauge arc ${this.extraClass}`);
     if (this.useArcShadows) {
       newCircle.setAttribute('filter', 'url(#shadow-arc');
     }
 
     const startPos = this.mapValueToPercentage(this.needleMinValue, this.needleMaxValue, this.ranges[rangePosition]);
-    const endPos   = this.mapValueToPercentage(this.needleMinValue, this.needleMaxValue, this.ranges[rangePosition + 1]);
-    const length   = (endPos - startPos) * this.circumference * (this.arcSpanDegrees / 360) - this.arcSpacing;
+    const endPos = this.mapValueToPercentage(this.needleMinValue, this.needleMaxValue, this.ranges[rangePosition + 1]);
+    const length = (endPos - startPos) * this.circumference * (this.arcSpanDegrees / 360) - this.arcSpacing;
 
     const halfGapBelow = (180 - this.arcSpanGapDegrees) / 2;
     const rotationAngle = -(180 + halfGapBelow) + (startPos * this.arcSpanDegrees);
 
-    newCircle.setAttribute('transform' , `rotate(${rotationAngle}  ${this.cx} ${this.cy})`);
+    newCircle.setAttribute('transform', `rotate(${rotationAngle}  ${this.cx} ${this.cy})`);
     const dashArray = `${length},${this.circumference * 2}`;
 
     const dashOffset = `0`;
-    newCircle.setAttribute('stroke-dasharray' , dashArray);
-    newCircle.setAttribute('stroke-dashoffset' , dashOffset );
+    newCircle.setAttribute('stroke-dasharray', dashArray);
+    newCircle.setAttribute('stroke-dashoffset', dashOffset);
 
     return newCircle;
   }
