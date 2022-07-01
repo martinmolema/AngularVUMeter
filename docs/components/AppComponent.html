@@ -733,7 +733,7 @@ export class AppComponent {
     [useArcShadows]&#x3D;&quot;true&quot; [arcShadowDepth]&#x3D;&quot;-5&quot;
     [strokeWidth]&#x3D;&quot;15&quot;
     [ranges]&#x3D;&quot;ranges1&quot; [colors]&#x3D;&quot;colors1&quot; [arcSpacing]&#x3D;&quot;0&quot;
-    extraClass&#x3D;&quot;martin&quot;
+    extraClass&#x3D;&quot;myGauge1&quot;
     [timeOutduration]&#x3D;&quot;500&quot;
     [arcSpanDegrees]&#x3D;&quot;90&quot; [centralValueTextVerticalCorrection]&#x3D;&quot;20&quot;
     [showUnitMarkers]&#x3D;&quot;true&quot; [markerLargeUnit]&#x3D;&quot;99&quot; [markerSmallUnit]&#x3D;&quot;1&quot; [markerTextOffset]&#x3D;&quot;24&quot;
@@ -748,7 +748,7 @@ export class AppComponent {
     [useArcShadows]&#x3D;&quot;true&quot; [arcShadowDepth]&#x3D;&quot;-5&quot;
     [strokeWidth]&#x3D;&quot;15&quot;
     [ranges]&#x3D;&quot;ranges2&quot; [colors]&#x3D;&quot;colors2&quot; [arcSpacing]&#x3D;&quot;0&quot;
-    extraClass&#x3D;&quot;martin&quot;
+    extraClass&#x3D;&quot;myGauge2&quot;
     [timeOutduration]&#x3D;&quot;500&quot;
     [arcSpanDegrees]&#x3D;&quot;150&quot; [centralValueTextVerticalCorrection]&#x3D;&quot;20&quot;
     [showUnitMarkers]&#x3D;&quot;false&quot; [markerLargeUnit]&#x3D;&quot;15&quot; [markerSmallUnit]&#x3D;&quot;999&quot; [showMarkerTextLarge]&#x3D;&quot;true&quot;
@@ -761,6 +761,7 @@ export class AppComponent {
     [needleBaseWidth]&#x3D;&quot;4&quot; [needleLengthPercentage]&#x3D;&quot;85&quot; [needlePinRadius]&#x3D;&quot;1&quot;
     [strokeWidth]&#x3D;&quot;10&quot; [showNeedleValueAsText]&#x3D;&quot;true&quot;
     [ranges]&#x3D;&quot;ranges3&quot; [colors]&#x3D;&quot;colors3&quot; [arcSpacing]&#x3D;&quot;4&quot;
+    extraClass&#x3D;&quot;myGauge3&quot;
     [timeOutduration]&#x3D;&quot;1500&quot;
     [arcSpanDegrees]&#x3D;&quot;230&quot; [centralValueTextVerticalCorrection]&#x3D;&quot;20&quot;
     [showUnitMarkers]&#x3D;&quot;true&quot; [showMarkerTextLarge]&#x3D;&quot;true&quot;
@@ -774,6 +775,7 @@ export class AppComponent {
     [needleBaseWidth]&#x3D;&quot;4&quot; [needleLengthPercentage]&#x3D;&quot;105&quot; [needlePinRadius]&#x3D;&quot;1&quot;
     [strokeWidth]&#x3D;&quot;10&quot; [showNeedleValueAsText]&#x3D;&quot;true&quot;
     [ranges]&#x3D;&quot;ranges4&quot; [colors]&#x3D;&quot;colors4&quot; [arcSpacing]&#x3D;&quot;1&quot;
+    extraClass&#x3D;&quot;myGauge4&quot;
     [timeOutduration]&#x3D;&quot;1500&quot;
     [arcSpanDegrees]&#x3D;&quot;190&quot; [centralValueTextVerticalCorrection]&#x3D;&quot;20&quot; [markerTextOffset]&#x3D;&quot;20&quot;
   &gt;&lt;/app-vu-meter&gt;
@@ -785,6 +787,7 @@ export class AppComponent {
     [needleBaseWidth]&#x3D;&quot;10&quot; [needleLengthPercentage]&#x3D;&quot;50&quot;
     [strokeWidth]&#x3D;&quot;10&quot;
     [ranges]&#x3D;&quot;ranges5&quot; [colors]&#x3D;&quot;colors5&quot; [arcSpacing]&#x3D;&quot;2&quot;
+    extraClass&#x3D;&quot;myGauge5&quot;
     [timeOutduration]&#x3D;&quot;200&quot;
     [centralValueTextVerticalCorrection]&#x3D;&quot;20&quot;
     [showUnitMarkers]&#x3D;&quot;true&quot; [markerLargeOffset]&#x3D;&quot;15&quot; [markerLargeLength]&#x3D;&quot;25&quot; [markerTextOffset]&#x3D;&quot;-20&quot;
@@ -817,44 +820,34 @@ app-vu-meter + app-vu-meter {
   filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
   /* Similar syntax to box-shadow */
 }
+/* Generic backgrounds for inner gauge */
+:host ::ng-deep .gauge.arcs.background { fill: rgb(240,240,240); stroke: none;}
 
-::ng-deep text.gauge.label {
-  font-family: sans-serif;
-  font-size:10pt;
-  font-weight: bold;
-}
-:host ::ng-deep path.gauge.arcs.background.martin {
-  fill: antiquewhite;
-}
-:host ::ng-deep path.gauge.arcs.background {
-  fill: lightgray;
-  stroke:white;
-}
+/* Set custom backgrounds for inner gauge */
+:host ::ng-deep .gauge.arcs.background.myGauge1 { fill: antiquewhite; }
+:host ::ng-deep .gauge.arcs.background.myGauge2 { fill: rgb(200,255,255); }
+:host ::ng-deep .gauge.arcs.background.myGauge3 { fill: whitesmoke; }
+:host ::ng-deep .gauge.arcs.background.myGauge4 { fill: yellow; }
 
-:host ::ng-deep .gauge.needle.pointer.martin {
-  fill: black;
-  stroke: black;
-}
+/* color and fill of the needle, circle and pin */
+:host ::ng-deep .gauge.needle.pointer.myGauge1 { fill: black; stroke: black; }
+:host ::ng-deep .gauge.needle.pin.myGauge1     { fill: black; stroke: white;}
+:host ::ng-deep .gauge.needle.circle.myGauge1  { fill: black; stroke: white;}
 
-:host ::ng-deep .circle.gauge.needle.martin  {
-  fill: black;
-  stroke: black;
-}
-
-
+/* Create a box around each gauge */
 :host ::ng-deep article.gauge {
   border: 1px solid black;
   padding: 4px;
 }
 
-
-
-:host ::ng-deep article.gauge.martin {
+/* Create a fancy box around gauge 1 */
+:host ::ng-deep article.gauge.myGauge1 {
   border: 1px solid darkgray;
   box-shadow: 4px 4px 4px gray;
   border-radius: 5px;
 }
 
+/* set the marker texts */
 :host ::ng-deep text.gauge.marker.text {
   font-family: sans-serif;
   font-size: 8pt;
@@ -887,7 +880,7 @@ app-vu-meter + app-vu-meter {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">  <app-vu-meter    caption="test 1"    [width]="350" [height]="230"    [needleValue]="needleValue1" [needleValueIsPercentage]="false" [showNeedleValueAsText]="true"    [marginBottom]="25" [marginSide]="20" [marginTop]="5"    [needleBaseWidth]="7" [needleLengthPercentage]="100" [showNeedleShadow]="true" [needleShadowOffsetInDegrees]="5"    [useArcShadows]="true" [arcShadowDepth]="-5"    [strokeWidth]="15"    [ranges]="ranges1" [colors]="colors1" [arcSpacing]="0"    extraClass="martin"    [timeOutduration]="500"    [arcSpanDegrees]="90" [centralValueTextVerticalCorrection]="20"    [showUnitMarkers]="true" [markerLargeUnit]="99" [markerSmallUnit]="1" [markerTextOffset]="24"    [showMarkerTextSmall]="true" [markerSmallLength]="20"  ></app-vu-meter>  <app-vu-meter    caption="test 2"    [width]="350" [height]="230"    [needleValue]="needleValue2" [needleValueIsPercentage]="false" [showNeedleValueAsText]="true"    [marginBottom]="25" [marginSide]="20" [marginTop]="5"    [needleBaseWidth]="7" [needleLengthPercentage]="100" [showNeedleShadow]="true" [needleShadowOffsetInDegrees]="5"    [useArcShadows]="true" [arcShadowDepth]="-5"    [strokeWidth]="15"    [ranges]="ranges2" [colors]="colors2" [arcSpacing]="0"    extraClass="martin"    [timeOutduration]="500"    [arcSpanDegrees]="150" [centralValueTextVerticalCorrection]="20"    [showUnitMarkers]="false" [markerLargeUnit]="15" [markerSmallUnit]="999" [showMarkerTextLarge]="true"    [markerTextOffset]="20"  ></app-vu-meter>  <app-vu-meter    [width]="300" [height]="250"    [needleValue]="needleValue3" [needleValueIsPercentage]="true"    [marginBottom]="25" [marginSide]="30" [marginTop]="5"    [needleBaseWidth]="4" [needleLengthPercentage]="85" [needlePinRadius]="1"    [strokeWidth]="10" [showNeedleValueAsText]="true"    [ranges]="ranges3" [colors]="colors3" [arcSpacing]="4"    [timeOutduration]="1500"    [arcSpanDegrees]="230" [centralValueTextVerticalCorrection]="20"    [showUnitMarkers]="true" [showMarkerTextLarge]="true"    [markerLargeUnit]="15" [markerTextOffset]="-10" [markerSmallUnit]="5"    [showMarkerTextSmall]="false"  ></app-vu-meter>  <app-vu-meter    [width]="300" [height]="230"    [needleValue]="needleValue4" [needleValueIsPercentage]="false"    [marginBottom]="25" [marginSide]="30" [marginTop]="5"    [needleBaseWidth]="4" [needleLengthPercentage]="105" [needlePinRadius]="1"    [strokeWidth]="10" [showNeedleValueAsText]="true"    [ranges]="ranges4" [colors]="colors4" [arcSpacing]="1"    [timeOutduration]="1500"    [arcSpanDegrees]="190" [centralValueTextVerticalCorrection]="20" [markerTextOffset]="20"  ></app-vu-meter>  <app-vu-meter    footer="test 3"    [width]="400" [height]="220"    [needleValue]="needleValue5" [needleValueIsPercentage]="false" [showNeedleValueAsText]="true"    [marginBottom]="25" [marginSide]="10" [marginTop]="55"    [needleBaseWidth]="10" [needleLengthPercentage]="50"    [strokeWidth]="10"    [ranges]="ranges5" [colors]="colors5" [arcSpacing]="2"    [timeOutduration]="200"    [centralValueTextVerticalCorrection]="20"    [showUnitMarkers]="true" [markerLargeOffset]="15" [markerLargeLength]="25" [markerTextOffset]="-20"  ></app-vu-meter></div><label>Value for graph 1: <input [(ngModel)]="needleValue1" type="number" [min]="ranges1[0]" [max]="ranges1[ranges1.length-1]"></label><br><label>Value for graph 2: <input [(ngModel)]="needleValue2" type="number" [min]="ranges2[0]" [max]="ranges2[ranges2.length-1]"></label><br><label>Value for graph 3: <input [(ngModel)]="needleValue3" type="number" [min]="0" [max]="100">%</label><br><label>Value for graph 4: <input [(ngModel)]="needleValue4" type="number" [min]="ranges4[0]" [max]="ranges4[ranges4.length-1]"></label><br><label>Value for graph 5: <input [(ngModel)]="needleValue5" type="number" [min]="ranges5[0]" [max]="ranges5[ranges5.length-1]"></label><br></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <app-vu-meter    caption="test 1"    [width]="350" [height]="230"    [needleValue]="needleValue1" [needleValueIsPercentage]="false" [showNeedleValueAsText]="true"    [marginBottom]="25" [marginSide]="20" [marginTop]="5"    [needleBaseWidth]="7" [needleLengthPercentage]="100" [showNeedleShadow]="true" [needleShadowOffsetInDegrees]="5"    [useArcShadows]="true" [arcShadowDepth]="-5"    [strokeWidth]="15"    [ranges]="ranges1" [colors]="colors1" [arcSpacing]="0"    extraClass="myGauge1"    [timeOutduration]="500"    [arcSpanDegrees]="90" [centralValueTextVerticalCorrection]="20"    [showUnitMarkers]="true" [markerLargeUnit]="99" [markerSmallUnit]="1" [markerTextOffset]="24"    [showMarkerTextSmall]="true" [markerSmallLength]="20"  ></app-vu-meter>  <app-vu-meter    caption="test 2"    [width]="350" [height]="230"    [needleValue]="needleValue2" [needleValueIsPercentage]="false" [showNeedleValueAsText]="true"    [marginBottom]="25" [marginSide]="20" [marginTop]="5"    [needleBaseWidth]="7" [needleLengthPercentage]="100" [showNeedleShadow]="true" [needleShadowOffsetInDegrees]="5"    [useArcShadows]="true" [arcShadowDepth]="-5"    [strokeWidth]="15"    [ranges]="ranges2" [colors]="colors2" [arcSpacing]="0"    extraClass="myGauge2"    [timeOutduration]="500"    [arcSpanDegrees]="150" [centralValueTextVerticalCorrection]="20"    [showUnitMarkers]="false" [markerLargeUnit]="15" [markerSmallUnit]="999" [showMarkerTextLarge]="true"    [markerTextOffset]="20"  ></app-vu-meter>  <app-vu-meter    [width]="300" [height]="250"    [needleValue]="needleValue3" [needleValueIsPercentage]="true"    [marginBottom]="25" [marginSide]="30" [marginTop]="5"    [needleBaseWidth]="4" [needleLengthPercentage]="85" [needlePinRadius]="1"    [strokeWidth]="10" [showNeedleValueAsText]="true"    [ranges]="ranges3" [colors]="colors3" [arcSpacing]="4"    extraClass="myGauge3"    [timeOutduration]="1500"    [arcSpanDegrees]="230" [centralValueTextVerticalCorrection]="20"    [showUnitMarkers]="true" [showMarkerTextLarge]="true"    [markerLargeUnit]="15" [markerTextOffset]="-10" [markerSmallUnit]="5"    [showMarkerTextSmall]="false"  ></app-vu-meter>  <app-vu-meter    [width]="300" [height]="230"    [needleValue]="needleValue4" [needleValueIsPercentage]="false"    [marginBottom]="25" [marginSide]="30" [marginTop]="5"    [needleBaseWidth]="4" [needleLengthPercentage]="105" [needlePinRadius]="1"    [strokeWidth]="10" [showNeedleValueAsText]="true"    [ranges]="ranges4" [colors]="colors4" [arcSpacing]="1"    extraClass="myGauge4"    [timeOutduration]="1500"    [arcSpanDegrees]="190" [centralValueTextVerticalCorrection]="20" [markerTextOffset]="20"  ></app-vu-meter>  <app-vu-meter    footer="test 3"    [width]="400" [height]="220"    [needleValue]="needleValue5" [needleValueIsPercentage]="false" [showNeedleValueAsText]="true"    [marginBottom]="25" [marginSide]="10" [marginTop]="55"    [needleBaseWidth]="10" [needleLengthPercentage]="50"    [strokeWidth]="10"    [ranges]="ranges5" [colors]="colors5" [arcSpacing]="2"    extraClass="myGauge5"    [timeOutduration]="200"    [centralValueTextVerticalCorrection]="20"    [showUnitMarkers]="true" [markerLargeOffset]="15" [markerLargeLength]="25" [markerTextOffset]="-20"  ></app-vu-meter></div><label>Value for graph 1: <input [(ngModel)]="needleValue1" type="number" [min]="ranges1[0]" [max]="ranges1[ranges1.length-1]"></label><br><label>Value for graph 2: <input [(ngModel)]="needleValue2" type="number" [min]="ranges2[0]" [max]="ranges2[ranges2.length-1]"></label><br><label>Value for graph 3: <input [(ngModel)]="needleValue3" type="number" [min]="0" [max]="100">%</label><br><label>Value for graph 4: <input [(ngModel)]="needleValue4" type="number" [min]="ranges4[0]" [max]="ranges4[ranges4.length-1]"></label><br><label>Value for graph 5: <input [(ngModel)]="needleValue5" type="number" [min]="ranges5[0]" [max]="ranges5[ranges5.length-1]"></label><br></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'VuMeterComponent', 'selector': 'app-vu-meter'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
