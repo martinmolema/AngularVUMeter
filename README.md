@@ -2,7 +2,9 @@
 This component builds a Gauge or VU-meter using Scalable Vector Graphics. The current value is indicated
 using a customisable needle.
 
-![screenshot](docs/diagrams/screenshot-01.jpg)
+![screenshot 1](docs/diagrams/screenshot-01.jpg)
+![screenshot 2](docs/diagrams/screenshot-02.jpg)
+
 
 # Features
 * The arc of the VU-meter can have multiple parts in different colors.
@@ -15,6 +17,7 @@ using a customisable needle.
 * needle size can be adjusted
 * use percentage between 0 and 100 as a needle value instead of absolute values
 * guards against impossible values (null, undefined, out of range)
+* customisable markers and marker texts using shadow
 
 # Documentation
 Documentation is generated using Compodoc. 

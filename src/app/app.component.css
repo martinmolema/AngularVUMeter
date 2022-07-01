@@ -13,44 +13,34 @@ app-vu-meter + app-vu-meter {
   filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
   /* Similar syntax to box-shadow */
 }
+/* Generic backgrounds for inner gauge */
+:host ::ng-deep .gauge.arcs.background { fill: rgb(240,240,240); stroke: none;}
 
-::ng-deep text.gauge.label {
-  font-family: sans-serif;
-  font-size:10pt;
-  font-weight: bold;
-}
-:host ::ng-deep path.gauge.arcs.background.martin {
-  fill: antiquewhite;
-}
-:host ::ng-deep path.gauge.arcs.background {
-  fill: lightgray;
-  stroke:white;
-}
+/* Set custom backgrounds for inner gauge */
+:host ::ng-deep .gauge.arcs.background.myGauge1 { fill: antiquewhite; }
+:host ::ng-deep .gauge.arcs.background.myGauge2 { fill: rgb(200,255,255); }
+:host ::ng-deep .gauge.arcs.background.myGauge3 { fill: whitesmoke; }
+:host ::ng-deep .gauge.arcs.background.myGauge4 { fill: yellow; }
 
-:host ::ng-deep .gauge.needle.pointer.martin {
-  fill: black;
-  stroke: black;
-}
+/* color and fill of the needle, circle and pin */
+:host ::ng-deep .gauge.needle.pointer.myGauge1 { fill: black; stroke: black; }
+:host ::ng-deep .gauge.needle.pin.myGauge1     { fill: black; stroke: white;}
+:host ::ng-deep .gauge.needle.circle.myGauge1  { fill: black; stroke: white;}
 
-:host ::ng-deep .circle.gauge.needle.martin  {
-  fill: black;
-  stroke: black;
-}
-
-
+/* Create a box around each gauge */
 :host ::ng-deep article.gauge {
   border: 1px solid black;
   padding: 4px;
 }
 
-
-
-:host ::ng-deep article.gauge.martin {
+/* Create a fancy box around gauge 1 */
+:host ::ng-deep article.gauge.myGauge1 {
   border: 1px solid darkgray;
   box-shadow: 4px 4px 4px gray;
   border-radius: 5px;
 }
 
+/* set the marker texts */
 :host ::ng-deep text.gauge.marker.text {
   font-family: sans-serif;
   font-size: 8pt;
