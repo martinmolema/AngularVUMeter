@@ -236,10 +236,11 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
   private setupConfig(): void {
     this.needleMaxValue = Math.max(...this.ranges);
     this.needleMinValue = Math.min(...this.ranges);
-    this.needleValueRange = Math.abs(this.needleMaxValue - this.needleMinValue);
 
     this.correctedNeedleMinValue = this.needleValueIsPercentage ? 0 : this.needleMinValue;
     this.correctedNeedleMaxValue = this.needleValueIsPercentage ? 100 : this.needleMaxValue;
+
+    this.needleValueRange = Math.abs(this.correctedNeedleMinValue - this.correctedNeedleMaxValue);
 
     this.arcSpanGapDegrees = 360 - this.arcSpanDegrees;
 
@@ -395,20 +396,15 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
     if (!this.showUnitMarkers) { return ;}
 
     const svgParent = this.elGeneratedContent?.nativeElement;
-    for (let m = this.needleMinValue; m <= this.needleMaxValue; m++) {
+    for (let m = this.correctedNeedleMinValue; m <= this.correctedNeedleMaxValue; m++) {
       let markerLength = 0;
       let markerOffset = 0;
-      let value = m;
-      if (this.needleValueIsPercentage) {
-        value = Math.floor(((m - this.needleMinValue) / this.needleValueRange) * 100)
-      }
 
-
-      if (value % this.markerLargeUnit === 0) {
+      if (m % this.markerLargeUnit === 0) {
         markerLength = this.markerLargeLength;
         markerOffset = this.markerLargeOffset;
       }
-      else if (value % this.markerSmallUnit === 0) {
+      else if (m % this.markerSmallUnit === 0) {
         markerLength = this.markerSmallLength;
         markerOffset = this.markerSmallOffset;
       }
@@ -418,7 +414,7 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
       const x2 = this.cx - (this.radius + markerOffset - markerLength);
       const y2 = this.cy;
 
-      const pos = (m - this.needleMinValue) / (this.needleValueRange);
+      const pos = (m - this.correctedNeedleMinValue) / (this.needleValueRange);
       const rotation = 90 - (this.arcSpanDegrees / 2) + (pos * this.arcSpanDegrees);
 
       const markerLine = SVGFactory.createElement(SVGElementType.Line) as SVGElement;
@@ -439,23 +435,18 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
   createMarkerTexts(): void {
     const svgParent = this.elGeneratedContent?.nativeElement;
 
-
     if (this.correctedNeedleMinValue % this.markerLargeUnit !== 0 ) {
-      this.addMarkerText(svgParent, this.needleMinValue, this.correctedNeedleMinValue);
+      this.addMarkerText(svgParent, this.correctedNeedleMinValue, this.correctedNeedleMinValue);
     }
 
     if (this.correctedNeedleMaxValue % this.markerLargeUnit !== 0 ) {
-      this.addMarkerText(svgParent, this.needleMaxValue, this.correctedNeedleMaxValue);
+      this.addMarkerText(svgParent, this.correctedNeedleMaxValue, this.correctedNeedleMaxValue);
     }
 
-    for (let m = this.needleMinValue; m <= this.needleMaxValue; m++) {
+    for (let m = this.correctedNeedleMinValue; m <= this.correctedNeedleMaxValue; m++) {
       let value;
-      if (this.needleValueIsPercentage) {
-        value = Math.trunc (((m - this.needleMinValue) / this.needleValueRange) * 100);
-      }
-      else {
-        value = m;
-      }
+      value = m;
+
       if (value % this.markerLargeUnit === 0 && this.showMarkerTextLarge) {
         this.addMarkerText(svgParent, m, value);
       }
@@ -469,7 +460,7 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
     let angleInDegreesForPosition;
     let textRotateAngleInDegrees;
 
-    const percentage = ((value - this.needleMinValue) / this.needleValueRange);
+    const percentage = ((value - this.correctedNeedleMinValue) / this.correctedNeedleMaxValue);
     const positionInDegrees = percentage * this.arcSpanDegrees;
 
     // calculate angle of rotation to calculate the position of the text
