@@ -91,6 +91,9 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
   /** The total degrees the arc spans. So 360 degrees is a full circle, 180 degrees is half a circle*/
   @Input() arcSpanDegrees = 180;
 
+  @Input() valuePrefix: string  = '';
+  @Input() valueSuffix: string  = '';
+
   private arcSpanGapDegrees = 0;
   private needleLeftAngle = 0;
 
@@ -115,10 +118,10 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
   /** The Y-position of the center label */
   public labelCenterY = 0;
 
-/* obsolete now that markers are introduced
-  public labelLeftRotate = 'rotate(0)';
-  public labelRightRotate = 'rotate(0)';
-*/
+  /* obsolete now that markers are introduced
+    public labelLeftRotate = 'rotate(0)';
+    public labelRightRotate = 'rotate(0)';
+  */
 
   /**  */
   public needleRotation = '';
@@ -175,11 +178,17 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
     this.setupConfig();
   }
 
-  ngAfterViewInit(): void {
+  drawGauge(): void {
+    this.clearGeneratedContent();
     this.createArcs();
     this.createMarkerTexts();
     this.createMarkers();
     this.update();
+
+  }
+
+  ngAfterViewInit(): void {
+    this.drawGauge();
   }// ngAfterViewInit
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -313,51 +322,10 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
 
     this.labelLeftY = this.cy - distanceYOfHalfArc;
     this.labelRightY = this.labelLeftY;
-
-/*
-
-    if (this.autoRotateArcTexts) {
-      let rotateLeft = 0;
-      let rotateRight = 0;
-      if (this.arcSpanDegrees < 180) {
-        rotateLeft = -this.arcSpanDegrees / 2;
-        rotateRight = this.arcSpanDegrees / 2;
-      } else {
-        rotateLeft = -(this.arcSpanDegrees / 2 + 180);
-        rotateRight = this.arcSpanDegrees / 2 + 180;
-      }
-      console.log(this.labelLeftX, this.labelLeftY);
-      console.log(this.labelRightX, this.labelRightY);
-      this.labelLeftRotate = `rotate(${rotateLeft}, ${this.labelLeftX}, ${this.labelLeftY})`;
-      this.labelRightRotate = `rotate(${rotateRight}, ${this.labelRightX}, ${this.labelRightY})`;
-    } else {
-      this.labelRightRotate = `rotate(0)`;
-      this.labelLeftRotate = `rotate(0)`;
-    }
-
-    this.labelRightRotate += ` translate(0, ${this.valueLabelsVerticalOffset})`;
-    this.labelLeftRotate += ` translate(0, ${this.valueLabelsVerticalOffset})`;
-
-    if (this.showRangeLabels) {
-      if (this.needleValueIsPercentage) {
-        this.labelTextLeft = '0%';
-        this.labelTextRight = '100%';
-      } else {
-        this.labelTextLeft = this.ranges[0].toString(10);
-        this.labelTextRight = this.needleMaxValue.toString(10);
-      }
-
-    }
-*/
-
-    // this.labelCenterX = this.textBox.x1 + this.textBox.w / 2;
-    // this.labelCenterY = this.textBox.y2;
     this.labelCenterX = this.cx;
     this.labelCenterY = this.cy + this.needlePinRadius + this.centralValueTextVerticalCorrection;
     this.needlePolygonPoints = `${this.cx - needleWidth},${this.cy} ${this.cx},${this.cy - needleLength} ${this.cx + needleWidth},${this.cy}`;
     this.needleTransformOrigin = `${this.cx},${this.cy}`;
-
-
   }//setupConfig
 
   private update(updateText: boolean = true): void {
@@ -369,7 +337,6 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
 
   private createArcs(): void {
     const svgParent = this.elGeneratedContent?.nativeElement;
-    this.clearArcs();
     if (svgParent === undefined) {
       return;
     }
@@ -386,77 +353,95 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
       const newCircle = this.createOneArc(segmentNr);
       svgParent.appendChild(newCircle);
     }
-    this.createMarkers();
-    this.createMarkerTexts();
-
   }// createArcs
 
   private createMarkers(): void {
-
+    console.log('createMarkers');
     if (!this.showUnitMarkers) { return ;}
 
     const svgParent = this.elGeneratedContent?.nativeElement;
     for (let m = this.correctedNeedleMinValue; m <= this.correctedNeedleMaxValue; m++) {
       let markerLength = 0;
       let markerOffset = 0;
+      let classname = '';
+      let showMarker = false;
 
       if (m % this.markerLargeUnit === 0) {
         markerLength = this.markerLargeLength;
         markerOffset = this.markerLargeOffset;
+        classname = 'large';
+        showMarker = true;
       }
       else if (m % this.markerSmallUnit === 0) {
         markerLength = this.markerSmallLength;
         markerOffset = this.markerSmallOffset;
+        classname = 'large';
+        showMarker = true;
+      }
+      if (showMarker) {
+        const x1 = this.cx - (this.radius + markerOffset);
+        const y1 = this.cy;
+        const x2 = this.cx - (this.radius + markerOffset - markerLength);
+        const y2 = this.cy;
+
+        const pos = (m - this.correctedNeedleMinValue) / (this.needleValueRange);
+        const rotation = 90 - (this.arcSpanDegrees / 2) + (pos * this.arcSpanDegrees);
+
+        const markerLine = SVGFactory.createElement(SVGElementType.Line) as SVGElement;
+        markerLine.setAttribute('x1', `${x1}`);
+        markerLine.setAttribute('y1', `${y1}`);
+        markerLine.setAttribute('x2', `${x2}`);
+        markerLine.setAttribute('y2', `${y2}`);
+        markerLine.setAttribute('stroke-width', '1');
+        markerLine.setAttribute('stroke', 'black');
+        markerLine.setAttribute('fill', 'none');
+        markerLine.setAttribute('class', `gauge marker ${classname} ${this.extraClass}`);
+        markerLine.setAttribute('transform', `rotate(${rotation},${this.cx},${this.cy})`);
+
+        svgParent.appendChild(markerLine);
       }
 
-      const x1 = this.cx - (this.radius + markerOffset);
-      const y1 = this.cy;
-      const x2 = this.cx - (this.radius + markerOffset - markerLength);
-      const y2 = this.cy;
-
-      const pos = (m - this.correctedNeedleMinValue) / (this.needleValueRange);
-      const rotation = 90 - (this.arcSpanDegrees / 2) + (pos * this.arcSpanDegrees);
-
-      const markerLine = SVGFactory.createElement(SVGElementType.Line) as SVGElement;
-      markerLine.setAttribute('x1', `${x1}`);
-      markerLine.setAttribute('y1', `${y1}`);
-      markerLine.setAttribute('x2', `${x2}`);
-      markerLine.setAttribute('y2', `${y2}`);
-      markerLine.setAttribute('stroke-width', '1');
-      markerLine.setAttribute('stroke', 'black');
-      markerLine.setAttribute('fill', 'none');
-      markerLine.setAttribute('class', `gauge marker ${this.extraClass}`);
-      markerLine.setAttribute('transform', `rotate(${rotation},${this.cx},${this.cy})`);
-
-      svgParent.appendChild(markerLine);
     }
   }//createMarkers
 
   createMarkerTexts(): void {
     const svgParent = this.elGeneratedContent?.nativeElement;
+    if (!this.showMarkerTextLarge && !this.showMarkerTextSmall) { return ; }
 
-    if (this.correctedNeedleMinValue % this.markerLargeUnit !== 0 ) {
-      this.addMarkerText(svgParent, this.correctedNeedleMinValue, this.correctedNeedleMinValue);
+    if (this.showMarkerTextSmall && !this.showMarkerTextLarge){
+      if (this.correctedNeedleMinValue % this.markerSmallUnit !== 0) {
+        this.addMarkerText(svgParent, 'minval', this.correctedNeedleMinValue, this.correctedNeedleMinValue);
+      }
+
+      if (this.correctedNeedleMaxValue % this.markerSmallUnit !== 0 ) {
+        this.addMarkerText(svgParent, 'maxval', this.correctedNeedleMaxValue, this.correctedNeedleMaxValue);
+      }
+    }
+    if (this.showMarkerTextLarge && !this.showMarkerTextSmall) {
+      if (this.correctedNeedleMinValue % this.markerLargeUnit !== 0) {
+        this.addMarkerText(svgParent, 'minval', this.correctedNeedleMinValue, this.correctedNeedleMinValue);
+      }
+
+      if (this.correctedNeedleMaxValue % this.markerLargeUnit !== 0 ) {
+        this.addMarkerText(svgParent, 'maxval', this.correctedNeedleMaxValue, this.correctedNeedleMaxValue);
+      }
     }
 
-    if (this.correctedNeedleMaxValue % this.markerLargeUnit !== 0 ) {
-      this.addMarkerText(svgParent, this.correctedNeedleMaxValue, this.correctedNeedleMaxValue);
-    }
 
     for (let m = this.correctedNeedleMinValue; m <= this.correctedNeedleMaxValue; m++) {
       let value;
       value = m;
 
       if (value % this.markerLargeUnit === 0 && this.showMarkerTextLarge) {
-        this.addMarkerText(svgParent, m, value);
+        this.addMarkerText(svgParent,'large', m, value);
       }
       else if (value % this.markerSmallUnit === 0 && this.showMarkerTextSmall) {
-        this.addMarkerText(svgParent, m, value);
+        this.addMarkerText(svgParent, 'small', m, value);
       }
     }
   }// createMarkerTexts
 
-  addMarkerText(parent: any, value: number, captionValue: number):void {
+  addMarkerText(parent: any, classname: string, value: number, captionValue: number):void {
     let angleInDegreesForPosition;
     let textRotateAngleInDegrees;
 
@@ -478,13 +463,13 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
     text1.setAttribute('x', `${tx}`);
     text1.setAttribute('y', `${ty}`);
     text1.setAttribute('text-anchor', `middle`);
-    text1.setAttribute('class', `gauge marker text ${this.extraClass}`);
+    text1.setAttribute('class', `gauge marker text ${classname} ${this.extraClass}`);
     text1.setAttribute('transform', `rotate(${textRotateAngleInDegrees} ${tx} ${ty})`);
 
     text2.setAttribute('x', `${tx}`);
     text2.setAttribute('y', `${ty}`);
     text2.setAttribute('text-anchor', `middle`);
-    text2.setAttribute('class', `gauge marker text shadow ${this.extraClass}`);
+    text2.setAttribute('class', `gauge marker text shadow ${classname}  ${this.extraClass}`);
     text2.setAttribute('transform', `rotate(${textRotateAngleInDegrees} ${tx} ${ty}) translate(1,1)`);
 
     if (this.needleValueIsPercentage) {
@@ -504,7 +489,7 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
    * Removes all generated contents for the visible arcs
    * @private
    */
-  private clearArcs(): void {
+  private clearGeneratedContent(): void {
     const svgParent = this.elGeneratedContent?.nativeElement;
     if (svgParent === undefined) {
       return;
@@ -544,7 +529,7 @@ export class VuMeterComponent implements OnInit, AfterViewInit, OnChanges {
       if (this.needleValueIsPercentage) {
         this.needleTextValue = this.adjustedNeedleValue().toFixed(0) + '%';
       } else {
-        this.needleTextValue = this.internalNeedleValue.toString(10);
+        this.needleTextValue = this.valuePrefix + this.internalNeedleValue.toString(10) + this.valueSuffix;
       }
     }
   }

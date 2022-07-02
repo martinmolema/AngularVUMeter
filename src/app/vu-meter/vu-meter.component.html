@@ -39,19 +39,11 @@
                 [attr.r]="needlePinRadius"
                 class="gauge needle pin {{extraClass}}"></circle>
       </g>
-<!--      <text #labelLeft class="gauge label left {{extraClass}}"
-            [attr.x]="labelLeftX"
-            [attr.y]="labelLeftY"
-            [attr.transform]="labelLeftRotate"
-      >{{labelTextLeft}}</text>
-      <text #labelRight class="gauge label right {{extraClass}}"
-            [attr.x]="labelRightX"
-            [attr.y]="labelRightY"
-            [attr.transform]="labelRightRotate"
-      >{{labelTextRight}}</text>-->
+
       <text #labelCenter class="gauge label center {{extraClass}}"
             [attr.x]="labelCenterX"
             [attr.y]="labelCenterY"
+            text-anchor="middle"
       >{{this.needleTextValue}}</text>
     </svg>
   </section>

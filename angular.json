@@ -71,6 +71,7 @@
               "browserTarget": "gaugev13:build:production"
             },
             "development": {
+              "port": 4210,
               "browserTarget": "gaugev13:build:development"
             }
           },
